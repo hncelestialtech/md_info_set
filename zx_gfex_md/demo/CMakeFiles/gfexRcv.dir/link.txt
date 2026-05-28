@@ -1,0 +1,1 @@
+/usr/bin/c++   -ggdb -std=c++11   CMakeFiles/gfexRcv.dir/src/apiTool.cpp.o CMakeFiles/gfexRcv.dir/src/gfexRcv.cpp.o CMakeFiles/gfexRcv.dir/src/logMarket.cpp.o CMakeFiles/gfexRcv.dir/src/main.cpp.o  -o bin/gfexRcv  -ldl -lpthread 

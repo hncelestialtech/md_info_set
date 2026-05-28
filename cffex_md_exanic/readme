@@ -1,0 +1,7 @@
+
+注意，重启之后要执行
+
+/home/febao/febao_server/febao_server_V2.15.3_p18_20241112164133/febao_kernel/proxy_plugin/exanic-devkit-register-write exanic0 0x10 0x1
+
+
+

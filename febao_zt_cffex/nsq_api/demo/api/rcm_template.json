@@ -1,0 +1,38 @@
+{
+    "Rcm": {
+        "Transports": [
+            {
+                "Name": "Default",
+                "AckIntervalMilli": 100,
+                "AckTimeoutMilli": 5000,
+                "RepairDataMode": 0,
+                "MandatoryAckers": 0,
+                "HeartbeatIntervalMilli": 100,
+                "HeartbeatTimeoutMilli": 3000
+            }
+        ],
+        "Contexts": [
+            {
+                "Name": "Default",
+                "IsSingleton": true,
+                "TTL": 32,
+                "IsTotalOrder": true,
+                "IsRecord": false,
+                "UseSameMachine": false,
+                "RepairPastData": false,
+                "RepairPastDataWhenReconnected": false,
+                "IsHandshake": 1,
+                "IdGeneratedByTx": true,
+                "RecvBindAddr": true,
+                "TransceiverSeparation":true,
+                "NakDetectMicro":0
+            }
+        ],
+        "MaterialRange": {
+            "ContextId": {
+                "MinValue": 1,
+                "MaxValue": 65535
+            }
+        }
+    }
+}

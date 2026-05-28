@@ -1,0 +1,24 @@
+{
+    "level2": {
+        "interface_name": "ens8191",
+        "group_ip": "232.8.18.12",
+        "group_port": 28888
+    },
+
+    "level1": {
+        "interface_name": "ens8191d1",
+        "ip": "0.0.0.0",
+        "port": 0
+    },
+
+    "worker":{
+        "cpuid" :[10,11,13]
+    },
+    
+    "filter":{
+        "filter_instrument_info" : "/home/febao/febao_server/febao_server/febao_tools/febao_auto_instrument/csv/option_instrument_field.csv"
+    }
+}
+
+
+

@@ -1,0 +1,19 @@
+{
+    "nsq": {
+        "sdk_config": "/home/febao/febao_server/febao_server/febao_kernel/fb_md_proxy3/sdk_config.ini",
+        "user_config": "/home/febao/febao_server/febao_server/febao_kernel/fb_md_proxy3/user.properties"
+    },
+
+    "worker":{
+        "cpuid" :0
+    },
+    
+    "filter":{
+        "filter_instrument_info" : "/home/febao/febao_server/febao_server/febao_tools/febao_auto_instrument/csv/option_instrument_field.csv",
+        "underlying" : ["IC2609","IM2609"]
+    }
+
+}
+
+
+

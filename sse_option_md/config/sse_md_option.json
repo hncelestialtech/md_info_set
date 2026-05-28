@@ -1,0 +1,17 @@
+{
+    "multicast": {
+        "IfName": "enp193s0f0",
+        "group_ip": "233.0.1.2",
+        "group_port": 28930
+    },
+
+    "worker":{
+        "cpuid" :[16]
+    },
+    
+    "filter":{
+        "filter_instrument_info" : "/home/febao/febao_server/febao_server/febao_tools/febao_auto_instrument/csv/option_instrument_field.csv"
+    }
+
+}
+

@@ -1,0 +1,27 @@
+﻿Windows版本：
+	说明：该演示为win64，建议使用64位
+
+	1、编译
+	cd build_win64
+	cmake ..
+	cmake --build . --config Release
+	cmake -P cmake_install.cmake
+
+	2、运行
+	1）cd api
+
+	2）按照部署文档配置sdk_config.ini
+
+	3）双击HSNsqApiDemo.exe运行(cmd下执行命令 HSNsqApiDemo.exe [配置文件]，可选择指定配置文件运行，不指定则默认使用当前路径下的sdk_config.ini)
+	
+
+Linux arm版本：
+	1、编译
+	make -f makefile.gcc
+
+	2、运行
+	1）cd api
+
+	2）按照部署文档配置sdk_config.ini
+
+	3）执行 sh run_sailfish_sdk.sh [配置文件](该配置文件为可选命令行参数，不指定则默认使用当前路径下的sdk_config.ini)

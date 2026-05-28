@@ -1,0 +1,20 @@
+{
+    "npro": {
+        "device_name": "exanic0",
+        "license_file":"/home/febao/febao_server/febao_server/febao_kernel/proxy_plugin/license_04bd9787b8e4.txt",
+        "config_file":"/home/febao/febao_server/febao_server/febao_kernel/proxy_plugin/npro.ini",
+        "subscribes":[],
+        "exchanges":"shfe",
+        "product_class":"all"
+    },
+
+    "worker":{
+        "cpuid" :11
+    },
+
+    "stats":{
+        "logpath" : "/home/febao/febao_server/febao_server/febao_kernel/proxy_plugin",
+        "logtime" :151500
+    }
+}
+

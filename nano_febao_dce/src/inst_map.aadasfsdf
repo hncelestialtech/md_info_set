@@ -1,0 +1,139 @@
+#pragma once
+
+#include <vector>
+#include <cstdint>
+#include <cstring>
+#include <algorithm>
+
+
+#pragma pack(1)
+struct QuotaInfo{
+
+    uint64_t time;
+    uint64_t volume;
+    double   ap1;
+    double   bp1;
+	double	 turn_over;               // 成交金额
+    double   open;
+    double   high;
+    double   low;
+    double   last_price;
+    double   upper;            
+    double   lower;
+    double   last_settlement_price;
+    double   last_closing_price;
+
+    uint32_t idx;
+    uint32_t level;
+    uint32_t av1;
+    uint32_t bv1;
+    uint32_t open_interest;
+    uint32_t init_open_interest;      // 初始持仓量
+    
+};
+
+
+
+
+class MyInstMap {
+private:
+    struct Item {
+        uint128_t key;
+        QuotaInfo value;
+        
+        bool operator<(const Item& other) const {
+            return key < other.key;
+        }
+    };
+    
+    std::vector<Item> m_data;
+    bool              m_sorted = false;
+    
+    __attribute__((always_inline))
+    static uint128_t chars_to_uint128(const char* str) {
+        uint128_t result = 0;
+        memcpy(&result, str, 16); // 注意，只拷贝前16字节，后4字节已知为0
+        return result;
+    }
+
+public:
+
+    __attribute__((always_inline))
+    void InitOnce(const char* inst) {
+        Item kv;
+        kv.key = chars_to_uint128(inst);
+        kv.value.level = 0;
+        m_data.push_back(kv);
+    }
+
+    __attribute__((always_inline))
+    void Sort() {
+        std::sort(m_data.begin(), m_data.end());
+        m_sorted = true;
+        m_data.shrink_to_fit();
+    }
+
+
+    __attribute__((always_inline))
+    QuotaInfo* Find(const char* key) {
+        uint128_t search_key = chars_to_uint128(key);
+        auto it = std::lower_bound(m_data.begin(), m_data.end(), search_key,
+            [](const Item& kv, uint128_t k) {
+                return kv.key < k;
+            });
+            
+        if (it != m_data.end() && it->key == search_key) {
+            return &it->value;
+        }
+        return nullptr;
+    }
+
+
+  
+
+    // 初始化
+    // void Init(const std::vector<std::pair<const char*, QuotaInfo>>& items) {
+    //     m_data.reserve(items.size());
+
+    //     for (const auto& item : items) {
+    //         Item kv;
+    //         kv.key = chars_to_uint128(item.first);
+    //         kv.value = item.second;
+    //         m_data.push_back(kv);
+    //     }
+        
+    //     std::sort(m_data.begin(), m_data.end());
+    //     m_sorted = true;
+    //     m_data.shrink_to_fit();
+    // }
+    
+
+
+
+    // __attribute__((always_inline))
+    // bool Exist(const char* key) const {
+    //     uint128_t search_key = chars_to_uint128(key);
+        
+    //     // 二分查找
+    //     auto it = std::lower_bound(m_data.begin(), m_data.end(), search_key,
+    //         [](const Item& kv, uint128_t k) {
+    //             return kv.key < k;
+    //         });
+            
+    //     return it != m_data.end() && it->key == search_key;
+    // }
+    
+
+
+};
+
+
+#pragma pack()
+
+
+
+
+
+
+
+

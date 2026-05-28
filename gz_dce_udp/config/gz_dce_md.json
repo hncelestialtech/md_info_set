@@ -1,0 +1,26 @@
+{
+    "level2": {
+        "interface_name": "enp23s0f1",
+        "group_ip": "239.8.8.8",
+        "group_port": 12581
+    },
+
+    "decode": {
+        "decrypt": 2,
+        "remote_key_path": "udp://172.42.11.230:12347",
+        "remote_key_path_bak": "udp://172.42.11.232:12347",
+        "channel":1
+    },
+
+    "worker":{
+        "cpuid" :[12]
+    },
+    
+    "filter":{
+        "filter_instrument_info" : "/home/febao/febao_server/febao_server/febao_tools/febao_auto_instrument/csv/option_instrument_field.csv",
+        "underlying" :["jm2605","jm2606","jm2605-C-1100","jm2605-P-1100","jm2605-C-1200","jm2605-P-1200"]
+    }
+}
+
+
+

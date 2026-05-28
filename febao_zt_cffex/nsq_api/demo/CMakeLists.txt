@@ -1,0 +1,84 @@
+cmake_minimum_required(VERSION 2.8)
+
+
+#cmake .. -DENABLE_IPC_TIMESTAMP_DEBUG=ON
+option(ENABLE_IPC_TIMESTAMP_DEBUG "ON for enable ENABLE_IPC_TIMESTAMP_DEBUG; OFF for disable ENABLE_IPC_TIMESTAMP_DEBUG" OFF)
+
+set(PLATFORM)
+set(HSMDAPI_BASE_LIBS)
+math(EXPR BITS "8*${CMAKE_SIZEOF_VOID_P}")
+
+if(UNIX)
+if(${CMAKE_SYSTEM_PROCESSOR} MATCHES "aarch64")
+set(BITS ".arm64")
+else()
+set(BITS ".x${BITS}")
+endif()
+endif(UNIX)
+
+
+#base dir
+set(BASE_DIR ${PROJECT_SOURCE_DIR})
+
+
+if(UNIX)
+
+	set(PLATFORM linux)
+	set(HSMDAPI_BASE_LIBS pthread rt)
+
+	if(CMAKE_COMPILER_IS_GNUCXX)
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -Wl,-Bsymbolic -fPIC -Wl,-rpath=. -g -O3 -std=gnu++11")
+	endif(CMAKE_COMPILER_IS_GNUCXX)
+
+elseif(WIN32)
+
+	set(PLATFORM win)
+
+	if(MSVC)
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MT")
+		set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
+		set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
+
+		set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Zi")
+		set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS_RELEASE} /DEBUG /OPT:REF /OPT:ICF")
+		set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /DEBUG /OPT:REF /OPT:ICF")
+	endif(MSVC)
+
+endif(UNIX)
+
+
+set(CMAKE_BUILD_TYPE "Release")
+
+if(ENABLE_IPC_TIMESTAMP_DEBUG)
+	add_definitions(-D ENABLE_IPC_TIMESTAMP_DEBUG)
+endif(ENABLE_IPC_TIMESTAMP_DEBUG)
+
+
+include_directories(${PROJECT_SOURCE_DIR})
+include_directories(${PROJECT_SOURCE_DIR}/../include)
+
+message(${BASE_DIR}/../${PLATFORM}${BITS})
+
+link_directories(${BASE_DIR}/../${PLATFORM}${BITS})
+
+
+file(GLOB APP_HEAD *.h)
+file(GLOB APP_SRC *.cpp)
+set(HSMDAPI_BASE_LIBS  ${HSMDAPI_BASE_LIBS}
+	  debug HSNsqApi
+	  optimized HSNsqApi
+	)
+
+add_executable(HSNsqApiDemo ${APP_SRC} ${APP_HEAD})
+target_link_libraries(HSNsqApiDemo ${HSMDAPI_BASE_LIBS})
+
+
+# install
+set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR})
+install(TARGETS HSNsqApiDemo DESTINATION api)
+if(WIN32)
+	install(FILES ${PROJECT_BINARY_DIR}/${CMAKE_BUILD_TYPE}/HSNsqApiDemo.pdb DESTINATION api)
+endif(WIN32)
+file(GLOB HSMDAPI_INSTALL_LIBS ${BASE_DIR}/../${PLATFORM}${BITS}/*)
+install(FILES ${HSMDAPI_INSTALL_LIBS} DESTINATION api)
+

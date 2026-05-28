@@ -1,0 +1,124 @@
+EXE        = HSNsqApiDemo
+
+LIB_PRE    = lib
+LIB_EXE    = .so
+SO_NAME    = ${LIB_PRE}${EXE}${LIB_EXE}
+
+SF_SDK_DIR = ../..
+SF_ROOT_DIR= ../../..
+FBASE_DIR  = ${SF_ROOT_DIR}/../..
+#ARCH       = $(shell getconf LONG_BIT)
+
+ifeq ($(V),32)
+ARCH 	   = 32
+else
+ARCH 	   = 64
+endif
+
+link       = c++
+
+# is so or exe
+IS_SO      = false
+
+#out dirs
+#EXE_OUTDIR = ${FBASE_DIR}/Lib/linux.x${ARCH}
+EXE_OUTDIR = api
+OBJ_OUTDIR = objs
+
+#include dirs
+INC_DIRS   = . .. ../include 
+
+#depend libs
+LIB_NAMES  = HSNsqApi pthread rt
+
+#depend lib dirs
+ifeq ($(shell arch), aarch64)
+LIB_DIRS   = ../linux.arm${ARCH}
+#LIB_DIRS    = ./api
+else
+LIB_DIRS   = ../linux.x${ARCH}
+#LIB_DIRS    = ./api
+endif
+
+
+#c sources
+CPP_SRCS  += $(wildcard *.c)
+
+#cpp sources
+CPP_SRCS  += $(wildcard *.cpp)
+
+
+#pre definations
+PRE_DEFS    =
+
+#cflags
+CFLAGS     = -g -O3 -fPIC -Wall -std=c++11#-Wextra
+
+ifeq ($(shell arch), aarch64)
+CFLAGS     += -faligned-new -fsigned-char 
+else
+CFLAGS     += -msse4 
+endif
+
+ifeq ($(ARCH), 32)
+CFLAGS += -m32
+endif
+
+#ldflags
+LDFLAGS    = -fvisibility=hidden -Wl,-Bsymbolic -Wl,-rpath=.
+
+
+ifdef ENABLE_IPC_TIMESTAMP_DEBUG
+PRE_DEFS   += -D ENABLE_IPC_TIMESTAMP_DEBUG
+endif
+
+ifdef DEBUG
+PRE_DEFS   += -D DEBUG
+endif
+
+ifneq ($(origin VER), undefined)
+PRE_DEFS   += -D VER=\"$(VER)\"
+endif
+
+ifeq (${IS_SO}, true)
+LDFLAGS   += -shared -Wl,-soname,${SO_NAME}
+TARGET     = ${EXE_OUTDIR}/${LIB_PRE}${EXE}${LIB_EXE}
+else
+LDFLAGS   += -rdynamic
+TARGET     = ${EXE_OUTDIR}/${EXE}
+endif
+
+
+
+INCLUDES = $(addprefix -I,${INC_DIRS})
+LIBS       = $(addprefix -l,${LIB_NAMES}) $(addprefix -L,${LIB_DIRS})
+
+C_OBJS     = $(patsubst %.c, %.o, ${C_SRCS})
+CPP_OBJS   = $(patsubst %.cpp, %.o, ${CPP_SRCS})
+NODIR_OBJS = $(notdir ${C_OBJS} ${CPP_OBJS})
+OBJS       = $(addprefix ${OBJ_OUTDIR}/,${NODIR_OBJS})
+
+
+all: clean init ${TARGET}
+inc: init ${TARGET}
+
+${TARGET}: ${OBJS}
+	${link} -o $@ ${CFLAGS} ${LDFLAGS} ${OBJS} ${LIBS}
+
+
+define MAKE_OBJS_TEMPLATE
+$${OBJ_OUTDIR}/$$(notdir ${1}): $$(patsubst %.o,%.${2},${1})
+	${3}  $$(CFLAGS) $${PRE_DEFS} -c $$< -o $$@ $${INCLUDES}
+endef
+
+$(foreach obj,${C_OBJS},$(eval $(call MAKE_OBJS_TEMPLATE,${obj},c,cc)))
+$(foreach obj,${CPP_OBJS},$(eval $(call MAKE_OBJS_TEMPLATE,${obj},cpp,c++)))
+
+
+init:
+	-mkdir ${OBJ_OUTDIR}
+clean:
+	-rm -rf ${TARGET} ${OBJ_OUTDIR}
+clean_objs:
+	-rm -rf ${OBJS}
+

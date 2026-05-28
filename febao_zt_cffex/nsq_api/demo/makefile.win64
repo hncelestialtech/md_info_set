@@ -1,0 +1,39 @@
+TARGET_NAME     = HSNsqApiDemo
+
+LINK            = link
+SF_ROOT_DIR     = ..
+OUT_DIR         = .\api
+INCLUDE_DIR     = /I. /I.. /I../Include
+SYS_LINK_LIB    = 
+COMMON_LIB_DIR  = ..\win64
+COMMON_LINK_LIB = HSNsqApi.lib
+OBJS            = $(OUT_DIR)\HSNsqSpiImpl.obj   \
+                  $(OUT_DIR)\HSNsqApiDemo.obj   \
+                  $(OUT_DIR)\DataWriter.obj   \
+                  $(OUT_DIR)\Functions.obj   \
+
+
+CPPFLAGS        = /O2 /Ob2 /MT /Zi
+
+TARGET    = $(OUT_DIR)\$(TARGET_NAME).exe
+DEFS      = $(DEFS) /DWIN32 /D_WINDOWS /D_MBCS /D_CRT_SECURE_NO_WARNINGS /DSEPARATE_COMPILE
+!ifdef VER
+DEFS      = $(DEFS) /DVER=\"$(VER)\"
+!endif
+CPPFLAGS  = $(CPPFLAGS) /EHsc /W3 /nologo /c /TP /Fo"$(OUT_DIR)\\" /Fd"$(OUT_DIR)\\"
+LINKFLAGS = $(LINKFLAGS) /nologo /out:$(TARGET) /libpath:$(COMMON_LIB_DIR) $(COMMON_LINK_LIB) /MACHINE:X64
+
+all: $(OUT_DIR) clean $(TARGET)
+inc: $(OUT_DIR) $(TARGET)
+
+$(OUT_DIR) :
+	md $(OUT_DIR)
+
+$(TARGET) : $(OBJS)
+	$(LINK) $(LINKFLAGS) $(OBJS)
+
+.cpp{$(OUT_DIR)}.obj::
+	$(CC) $(DEFS) $(CPPFLAGS) $(INCLUDE_DIR) $<
+
+clean:
+	del $(TARGET) $(OBJS)

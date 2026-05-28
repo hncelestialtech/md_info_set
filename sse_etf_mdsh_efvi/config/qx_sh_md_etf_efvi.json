@@ -1,0 +1,15 @@
+{
+    "eth": {
+        "mdshcfg":"./mdsh.ini"
+    },
+
+    "worker":{
+        "cpuid" :14
+    },
+
+    "filter":{
+        "filter_instrument_info" : "/home/febao/febao_server/febao_server/febao_tools/febao_auto_instrument/csv/option_instrument_field.csv",
+        "underlying" :["510050"]
+    }
+}
+

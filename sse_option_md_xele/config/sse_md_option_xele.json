@@ -1,0 +1,49 @@
+{
+    "auth_info":{
+        "tcp_ipaddr":"10.102.134.46",             
+        "tcp_port":30000,                       
+        "backup_tcp_ipaddr":"10.102.134.45",       
+        "backup_tcp_port":40000,                  
+        "username":"xele0001",                     
+        "password":"111111"                        
+    },
+
+    "channel": {
+        "channel_num": 1,
+        "param":[
+            {
+                "interface_name": "enp23s0f1",
+                "interface_ip": "5.5.5.16",
+                "mcast_ip": "233.0.0.1",
+                "mcast_port": 3000,
+                "bind_cpu_id": 15,
+                "is_polling": true,
+                "cache_size": 0,
+                "cache_cpu_id": -1,
+                "nic_type": 0,
+
+                "tick_to_snap": 0,
+                "tick_to_snap_cpu": 15,
+                "tick_to_snap_subscribe": "../subscribe_securities.txt",
+                "mark_last": 0,
+                "back_interface_name": "enp23s0f1",
+                "back_interface_ip": "5.5.5.16",
+                "back_mcast_ip": "233.0.0.1",
+                "back_mcast_port": 0,
+                "back_cpu_id": 16,
+                "back_nic_type": 0
+            }
+        ]
+    },
+
+
+    "worker":{
+        "cpuid" :[0]
+    },
+    
+    "filter":{
+        "filter_instrument_info" : "/home/febao/febao_server/febao_server/febao_tools/febao_auto_instrument/csv/option_instrument_field.csv"
+    }
+
+}
+

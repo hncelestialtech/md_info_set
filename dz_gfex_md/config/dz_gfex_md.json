@@ -1,0 +1,34 @@
+{
+    "level2": {
+        "interface_name": "ens8191",
+        "tcp_filter": {
+            "src_ip": "21.5.18.201",
+            "src_port": 20907,
+            "dst_ip": "21.29.25.20",
+            "dst_port": 0
+        }
+    },
+
+    "level1": {
+        "interface_name": "ens8191d1",
+        "tcp_filter": {
+            "src_ip": "0.0.0.0",
+            "src_port": 5007,
+            "dst_ip": "11.5.97.27",
+            "dst_port": 0
+        }
+    },
+
+    "worker":{
+        "mapping_local": "/home/febao/febao_server/febao_server/febao_kernel/fb_md_proxy1",
+        "cpuid" :[10,11,13]
+    },
+    
+    "filter":{
+        "filter_instrument_info" : "/home/febao/febao_server/febao_server/febao_tools/febao_auto_instrument/csv/option_instrument_field.csv",
+        "underlying":["si2605","lc2604"]
+    }
+}
+
+
+

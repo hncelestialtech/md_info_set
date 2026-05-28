@@ -1,0 +1,18 @@
+{
+    "nano":{
+        "config_path": "/home/febao/febao_server/febao_server/febao_kernel/proxy_plugin/"
+    },
+
+    "worker":{
+        "cpuid" :[12,13]
+    },
+    
+    "filter":{
+        "filter_instrument_info" : "/home/febao/febao_server/febao_server/febao_tools/febao_auto_instrument/csv/option_instrument_field.csv",
+        "underlying" :["lc2510","si2510"]
+    }
+
+}
+
+
+

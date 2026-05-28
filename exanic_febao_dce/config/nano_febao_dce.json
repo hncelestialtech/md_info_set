@@ -1,0 +1,25 @@
+{
+
+    "eth": {
+        "IfName": "enp225s0",
+        "addresses": {
+            "addr1": {
+                "GroupIp": "224.4.1.4",
+                "GroupPort": 27331
+            }
+        }
+    },
+
+    "worker":{
+        "cpuid" :[12,13]
+    },
+    
+    "filter":{
+        "filter_instrument_info" : "/home/febao/febao_server/febao_server/febao_tools/febao_auto_instrument/csv/option_instrument_field.csv",
+        "ob_level_mask" :1
+    }
+
+}
+
+
+

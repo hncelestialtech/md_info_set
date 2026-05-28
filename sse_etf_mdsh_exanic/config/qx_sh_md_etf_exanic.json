@@ -1,0 +1,21 @@
+{
+    "eth": {
+        "IfName": "enp23s0d1",
+        "addresses": {
+            "addr1": {
+                "GroupIp": "239.72.102.178",
+                "GroupPort": 42118
+            }
+        }
+    },
+
+    "worker":{
+        "cpuid" :14
+    },
+
+    "filter":{
+        "filter_instrument_info" : "/home/febao/febao_server/febao_server/febao_tools/febao_auto_instrument/csv/option_instrument_field.csv",
+        "underlying" :["510050"]
+    }
+}
+

@@ -1,0 +1,301 @@
+#pragma once
+
+
+#include <atomic>
+#include <array>
+#include <cstdint>
+#include <cstring>
+#include <variant>
+
+
+#define L1_MD  1
+#define L2_MD  2
+
+
+#pragma pack(push, 1)
+
+// struct Lv1Quota{
+//     char     code[20];
+//     uint64_t extime;
+//     double   open;
+//     double   high;
+//     double   low; 
+//     double   last_price;
+//     double   settle;
+//     double   close;
+//     int32_t  openinterest;     
+//     uint32_t volume;
+//     double   turn_over;
+//     double   ap1;
+//     double   bp1;
+//     uint32_t av1;
+//     uint32_t bv1;
+
+//     Lv1Quota():code{},extime(0),open(FLOAT64_NAN),high(FLOAT64_NAN),low(FLOAT64_NAN),last_price(FLOAT64_NAN),settle(FLOAT64_NAN),close(FLOAT64_NAN),openinterest(0),volume(0),turn_over(FLOAT64_NAN),bp1(FLOAT64_NAN),ap1(FLOAT64_NAN),bv1(0),av1(0)
+//     {};
+
+//     Lv1Quota(char *inst, size_t inst_len, uint64_t extime, double open, double high, double low, double last_price, double settle, double close, int32_t openinterest, uint32_t volume, double turn_over, double bp1,double ap1,uint32_t bv1,uint32_t av1)
+//         :code{},extime(extime),open(open),high(high),low(low),last_price(last_price),settle(settle),close(close),openinterest(openinterest),volume(volume),turn_over(turn_over),bp1(bp1),ap1(ap1),bv1(bv1),av1(av1)
+//     {
+//         memcpy(code, inst, inst_len);
+//         code[inst_len] = '\0';
+//     };
+
+//     std::string ToString(){
+//         std::string ret(code);
+//         ret = ret + ","+std::to_string(extime)+","+std::to_string(open)+","+std::to_string(high)+","+std::to_string(low)+","+std::to_string(last_price)+","+std::to_string(settle)+","+std::to_string(close)+","+std::to_string(openinterest)+","+ std::to_string(volume)+","+ std::to_string(turn_over)
+//                   + ","+std::to_string(bp1) + ","+std::to_string(ap1) + ","+std::to_string(bv1) + ","+std::to_string(av1);
+//         return ret;
+//     }
+// };
+
+struct Quota_t{
+    char     code[20];
+    uint64_t extime;
+    double   open;
+    double   high;
+    double   low; 
+    double   last_price;
+    double   settle;   
+    double   close;   
+    int32_t  openinterest;    
+    uint32_t volume;
+    double   turn_over;
+
+    double bp1;
+    double bp2;
+    double bp3;
+    double bp4;
+    double bp5;
+
+    double  ap1;
+    double  ap2;
+    double  ap3;
+    double  ap4;
+    double  ap5;
+
+    uint32_t bv1;
+    uint32_t bv2;
+    uint32_t bv3;
+    uint32_t bv4;
+    uint32_t bv5;
+
+    uint32_t av1;
+    uint32_t av2;
+    uint32_t av3;
+    uint32_t av4;
+    uint32_t av5;
+
+    Quota_t():code{},extime(0),open(FLOAT64_NAN),high(FLOAT64_NAN),low(FLOAT64_NAN),last_price(FLOAT64_NAN),settle(FLOAT64_NAN),close(FLOAT64_NAN),openinterest(0),volume(0),turn_over(FLOAT64_NAN),
+              bp1(FLOAT64_NAN),bp2(FLOAT64_NAN),bp3(FLOAT64_NAN),bp4(FLOAT64_NAN),bp5(FLOAT64_NAN),
+              ap1(FLOAT64_NAN),ap2(FLOAT64_NAN),ap3(FLOAT64_NAN),ap4(FLOAT64_NAN),ap5(FLOAT64_NAN),
+              bv1(0),bv2(0),bv3(0),bv4(0),bv5(0),
+              av1(0),av2(0),av3(0),av4(0),av5(0)
+    {};
+
+    Quota_t(char *inst, size_t inst_len, uint64_t extime, double open, double high, double low, double last_price, double settle, double close, int32_t openinterest, uint32_t volume, double turn_over, double bp1,double ap1,uint32_t bv1,uint32_t av1)
+        :code{},extime(extime),open(open),high(high),low(low),last_price(last_price),settle(settle),close(close),openinterest(openinterest),volume(volume),turn_over(turn_over),bp1(bp1),ap1(ap1),bv1(bv1),av1(av1)
+    {
+        memcpy(code, inst, inst_len);
+        code[inst_len] = '\0';
+    };
+
+
+    Quota_t(char *inst, size_t inst_len, uint64_t extime, double open, double high, double low, double last_price, double settle, double close, int32_t openinterest, uint32_t volume, double turn_over,
+        double bp1,double bp2,double bp3,double bp4,double bp5,double ap1,double ap2,double ap3,double ap4,double ap5,uint32_t bv1,uint32_t bv2,uint32_t bv3,uint32_t bv4,uint32_t bv5,uint32_t av1,uint32_t av2,uint32_t av3,uint32_t av4,uint32_t av5)
+        :code{},extime(extime),open(open),high(high),low(low),last_price(last_price),settle(settle),close(close),openinterest(openinterest),volume(volume),turn_over(turn_over),
+              bp1(bp1),bp2(bp2),bp3(bp3),bp4(bp4),bp5(bp5), ap1(ap1),ap2(ap2),ap3(ap3),ap4(ap4),ap5(ap5),
+              bv1(bv1),bv2(bv2),bv3(bv3),bv4(bv4),bv5(bv5), av1(av1),av2(av2),av3(av3),av4(av4),av5(av5)
+    {
+        memcpy(code, inst, inst_len);
+        code[inst_len] = '\0';
+    };
+
+    std::string ToString(){
+        std::string ret(code);
+        ret = ret + ","+std::to_string(extime)+","+std::to_string(open)+","+std::to_string(high)+","+std::to_string(low)+","+std::to_string(last_price)+","+std::to_string(settle)+","+std::to_string(close)+","+std::to_string(openinterest)+","+ std::to_string(volume)+","+ std::to_string(turn_over)
+                  + ","+std::to_string(bp1)+","+std::to_string(bp2)+","+std::to_string(bp3)+","+std::to_string(bp4)+","+std::to_string(bp5)
+                  + ","+std::to_string(ap1)+","+std::to_string(ap2)+","+std::to_string(ap3)+","+std::to_string(ap4)+","+std::to_string(ap5)
+                  + ","+std::to_string(bv1)+","+std::to_string(bv2)+","+std::to_string(bv3)+","+std::to_string(bv4)+","+std::to_string(bv5)
+                  + ","+std::to_string(av1)+","+std::to_string(av2)+","+std::to_string(av3)+","+std::to_string(av4)+","+std::to_string(av5);
+        return ret;
+    }
+
+};
+
+struct Slot {
+    // uint64_t sequence;
+    // uint64_t extime;
+    uint64_t timestamp_0;
+    uint64_t timestamp_1;
+    // uint32_t res;
+    uint32_t  msg_type;
+    Quota_t   data;
+    Slot() = default;
+};
+
+#pragma pack(pop)
+
+// 环形缓冲区大小 - 使用2的幂次方以便位运算优化
+constexpr size_t RING_BUFFER_SIZE = 4096;
+
+class LockFreeRingBuffer {
+private:
+    // 缓存行对齐避免false sharing
+    struct alignas(64) RingBuffer {
+        std::array<Slot, RING_BUFFER_SIZE> slots{};
+        std::atomic<uint64_t> write_idx{0};
+        std::atomic<uint64_t> read_idx{0};
+        std::atomic<uint64_t> sequence{0}; // 全局序列号
+    };
+
+    RingBuffer m_buffer;
+
+    static constexpr uint64_t INDEX_MASK = RING_BUFFER_SIZE - 1;
+
+    __attribute__((always_inline)) uint64_t get_index(uint64_t seq) const {
+        return seq & INDEX_MASK;
+    }
+
+    __attribute__((always_inline)) bool is_full(uint64_t read_idx, uint64_t write_idx) const {
+        return (write_idx - read_idx) >= RING_BUFFER_SIZE;
+    }
+
+public:
+    LockFreeRingBuffer() = default;
+    ~LockFreeRingBuffer() = default;
+
+
+    LockFreeRingBuffer(const LockFreeRingBuffer&) = delete;
+    LockFreeRingBuffer& operator=(const LockFreeRingBuffer&) = delete;
+
+    __attribute__((always_inline)) void push_l1(const Quota_t *msgdata, uint64_t t0, uint64_t t1) {
+        uint64_t seq = m_buffer.sequence.fetch_add(1, std::memory_order_relaxed);
+        // std::clog <<__func__<<","<< __LINE__<<",seq:"<<seq<< std::endl;
+        while (true) {
+            uint64_t current_write = m_buffer.write_idx.load(std::memory_order_relaxed);
+            uint64_t current_read = m_buffer.read_idx.load(std::memory_order_acquire);
+            
+            if (!is_full(current_read, current_write)) {
+                uint64_t write_pos = get_index(current_write);
+                Slot& slot = m_buffer.slots[write_pos];
+                // std::clog <<__func__<<","<< __LINE__<<",write_pos:"<<write_pos<< std::endl;
+                // 写入数据
+                slot.timestamp_0 = t0;
+                slot.timestamp_1 = t1;        
+                slot.msg_type = L1_MD;
+                slot.data = *msgdata;
+ 
+                if (m_buffer.write_idx.compare_exchange_weak(
+                    current_write, current_write + 1,
+                    std::memory_order_release,
+                    std::memory_order_relaxed)) {
+
+                    // std::clog <<__func__<<","<< __LINE__<<",msg_type:"<<slot.msg_type<< std::endl;
+
+                    return;
+                }
+            } else {
+                // 队列满时的等待策略
+                asm volatile("pause" ::: "memory");
+            }
+        }
+        // std::clog <<__func__<<","<< __LINE__<<",seq:"<<seq<< std::endl;
+    }
+
+    //推送L2数据到队列
+    __attribute__((always_inline)) void push_l2(const Quota_t * msgdata, uint64_t t0, uint64_t t1) {
+        uint64_t seq = m_buffer.sequence.fetch_add(1, std::memory_order_relaxed);
+        
+        while (true) {
+            uint64_t current_write = m_buffer.write_idx.load(std::memory_order_relaxed);
+            uint64_t current_read = m_buffer.read_idx.load(std::memory_order_acquire);
+            
+            if (!is_full(current_read, current_write)) {
+                uint64_t write_pos = get_index(current_write);
+                Slot& slot = m_buffer.slots[write_pos];
+                
+                slot.timestamp_0 = t0;
+                slot.timestamp_1 = t1;
+                slot.msg_type = L2_MD;
+                slot.data = *msgdata;
+
+                if (m_buffer.write_idx.compare_exchange_weak(
+                    current_write, current_write + 1,
+                    std::memory_order_release,
+                    std::memory_order_relaxed)) {
+                    return;
+                }
+            } else {
+                asm volatile("pause" ::: "memory");
+            }
+        }
+    }
+
+    __attribute__((always_inline)) bool try_pop(Slot& slot) {
+
+        // 弹出数据
+        uint64_t current_read = m_buffer.read_idx.load(std::memory_order_relaxed);
+        uint64_t current_write = m_buffer.write_idx.load(std::memory_order_acquire);
+        
+        if (current_read != current_write) {
+            uint64_t read_pos = get_index(current_read);
+
+            slot = m_buffer.slots[read_pos];
+            // const Slot& current_slot = m_buffer.slots[read_pos];
+            // std::memcpy(&slot, &current_slot, sizeof(Slot));
+            
+            // 更新读取索引
+            m_buffer.read_idx.store(current_read + 1, std::memory_order_release);
+            return true;
+        }
+        return false;
+    }
+
+    //弹出数据（阻塞版本）
+    __attribute__((flatten)) void pop(Slot& slot) {
+        while (!try_pop(slot)) {
+            asm volatile("pause" ::: "memory");
+        }
+    }
+
+    //获取队列中元素数量
+    __attribute__((always_inline)) uint64_t size() const {
+        // 使用memory_order_acquire确保读取到最新的write_idx
+        uint64_t current_write = m_buffer.write_idx.load(std::memory_order_acquire);
+        uint64_t current_read = m_buffer.read_idx.load(std::memory_order_acquire);
+        return current_write - current_read;
+    }
+
+    //检查队列是否为空
+    __attribute__((always_inline)) bool empty() const {
+        // 使用宽松内存序，因为空检查不需要严格同步
+        uint64_t current_read = m_buffer.read_idx.load(std::memory_order_relaxed);
+        uint64_t current_write = m_buffer.write_idx.load(std::memory_order_relaxed);
+        return current_read == current_write;
+    }
+
+    //检查队列是否已满
+    __attribute__((always_inline)) bool full() const {
+        uint64_t current_read = m_buffer.read_idx.load(std::memory_order_acquire);
+        uint64_t current_write = m_buffer.write_idx.load(std::memory_order_relaxed);
+        return is_full(current_read, current_write);
+    }
+
+    //获取队列容量
+    constexpr size_t capacity() const {
+        return RING_BUFFER_SIZE;
+    }
+
+    //获取可用空间
+    __attribute__((always_inline)) uint64_t available() const {
+        return RING_BUFFER_SIZE - size();
+    }
+
+    uint64_t get_next_expected_sequence() const {
+        return m_buffer.read_idx.load(std::memory_order_relaxed);
+    }
+
+
+};
+
