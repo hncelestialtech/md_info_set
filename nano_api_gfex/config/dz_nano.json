@@ -1,0 +1,18 @@
+{
+    "nano":{
+        "config_path": "./config"
+    },
+
+    "worker":{
+        "cpuid" :[6,7]
+    },
+    
+    "filter":{
+        "filter_instrument_info" : "/home/febao/febao_server/febao_server/febao_tools/febao_auto_instrument/csv/option_instrument_field.csv",
+        "underlying" :["159915","588000"]
+    }
+
+}
+
+
+

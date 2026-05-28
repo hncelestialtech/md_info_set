@@ -28,7 +28,7 @@ TARGET_LINK_LIBRARIES(sse_md_option_xele PRIVATE libxelemd.a)
 
 # 行情插件头文件
 TARGET_INCLUDE_DIRECTORIES(sse_md_option_xele PRIVATE
-    /home/shenzx/code/qx_commom/
+    ../../qx_commom/
     ../febao/febao_md_proxy_api/fb_md_plugin_api/include
     ../dependency/xele_md_api/
     ./
