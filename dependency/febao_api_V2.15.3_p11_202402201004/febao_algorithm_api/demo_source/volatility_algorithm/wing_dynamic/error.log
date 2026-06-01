@@ -1,0 +1,8 @@
+src/wing_dynamic_model_impl.cc: In member function ‘void cffex::fb::plugin::wing_dynamic_model_impl::get_param_list(char*, char*)’:
+src/wing_dynamic_model_impl.cc:37:47: warning: argument to ‘sizeof’ in ‘char* strncpy(char*, const char*, size_t)’ call is the same expression as the source; did you mean to use the size of the destination? [-Wsizeof-pointer-memaccess]
+   37 |         strncpy(fixed_param_list, wing_param, sizeof(wing_param));
+      |                                               ^~~~~~~~~~~~~~~~~~
+src/wing_dynamic_model_impl.cc: In member function ‘int cffex::fb::plugin::wing_dynamic_model_impl::set_param_value(const char*, const char*)’:
+src/wing_dynamic_model_impl.cc:57:16: warning: ‘char* strncpy(char*, const char*, size_t)’ specified bound 512 equals destination size [-Wstringop-truncation]
+   57 |         strncpy(param, fixed_model_param, sizeof(char)*MAX_FIXED_MODEL_PARAM_LENGTH);
+      |         ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

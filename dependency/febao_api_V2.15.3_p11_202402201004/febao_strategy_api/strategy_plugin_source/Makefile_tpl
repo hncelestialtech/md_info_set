@@ -1,0 +1,147 @@
+###############################################################
+################# common frame ################################
+###############################################################
+OS=$(shell uname)$(shell uname -a | sed -n '1p' | perl -nle 'print $$1 if /\s+([0-9]\.\d+)/')
+GCC=$(shell gcc --version | sed -n '1p' | perl -nle 'print $$1 if /\s+([0-9]\.\d+)/')
+VER_PT=$(shell bit=`getconf LONG_BIT`;if [ $$bit -eq 64 ];  then echo 'X64'; else echo 'X32'; fi;)
+CC=g++
+
+
+define SAFE_MKDIR
+  INC_DIR+=-I $(1)
+endef
+$(foreach dir,$(DIR_LIST),$(eval $(call SAFE_MKDIR,$(dir))))
+
+
+ifeq "$(OS)" "Darwin"
+	DFLAGS=-DMAC
+	CFLAGS=-Wno-invalid-source-encoding -Wno-deprecated-declarations -Wno-undefined-var-template
+else
+	DFLAGS += -DLINUX
+	LDFLAGS =  -lrt -ldl
+	#--export-dynamic
+	CFLAGS  = -msse4
+endif
+
+DFLAGS += -DTIXML_USE_STL -DGCC
+LDFLAGS+=$(LIB_DIR)
+
+#-Wl
+CPPFLAGS+=$(INC_DIR) $(DFLAGS) -std=c++11
+
+ifeq ($(TEST_ZERO),1)
+	CFLAGS+=-O0
+else
+	CFLAGS+=-O2
+endif
+
+
+RELEASE_LDFLAGS=$(LDFLAGS) $(LIBS)
+DEBUG_LDFLAGS=$(LDFLAGS) $(LIBS_D)
+
+CFLAGS+= -fPIC -Wall -Wno-unused-function -Wno-strict-aliasing
+
+CC_DIRS=$(shell find $(DIR_LIST) -type d|sed -e '/.svn/d')
+
+CODE_LEN_PATH=./src
+
+RELEASE_OUTPUT=build/release/fb/self/self
+DEBUG_OUTPUT=build/debug/fb/self/self
+
+#SOURCE CODE
+CC_SRC1=$(shell find  $(DIR_LIST)   -name "*.cc" )
+CC_SRC2=$(shell find  $(DIR_LIST)   -name "*.c" )
+CC_SRC3=$(shell find  $(DIR_LIST)   -name "*.cpp" )
+
+#RELEASE DEFINES
+RELEASE_OBJS =  $(patsubst %.cc,./$(RELEASE_OUTPUT)/%.o,$(CC_SRC1))
+RELEASE_OBJS += $(patsubst %.c,./$(RELEASE_OUTPUT)/%.o,$(CC_SRC2))
+RELEASE_OBJS += $(patsubst %.cpp,./$(RELEASE_OUTPUT)/%.o,$(CC_SRC3))
+RELEASE_DEPS=$(patsubst %.o,%.d,$(RELEASE_OBJS))
+define RELEASE_OBJ_MKDIR
+  RELEASE_OBJ_DIRS+=./$(RELEASE_OUTPUT)/$(1)
+endef
+$(foreach dir,$(CC_DIRS),$(eval $(call RELEASE_OBJ_MKDIR,$(dir))))
+
+RELEASE_CFLAGS = $(CFLAGS)
+
+
+#DEBUG DEFINES
+DEBUG_OBJS =  $(patsubst %.cc,./$(DEBUG_OUTPUT)/%.o,$(CC_SRC1))
+DEBUG_OBJS += $(patsubst %.c,./$(DEBUG_OUTPUT)/%.o,$(CC_SRC2))
+DEBUG_OBJS += $(patsubst %.cpp,./$(DEBUG_OUTPUT)/%.o,$(CC_SRC3))
+define DEBUG_OBJ_MKDIR
+  DEBUG_OBJ_DIRS+=./$(DEBUG_OUTPUT)/$(1)
+endef
+$(foreach dir,$(CC_DIRS),$(eval $(call DEBUG_OBJ_MKDIR,$(dir))))
+DEBUG_DEPS=$(patsubst %.o,%.d,$(DEBUG_OBJS))
+
+DEBUG_CFLAGS = -g $(CFLAGS)
+
+all:release
+
+release:$(EXE)
+$(shell mkdir -p $(sort $(RELEASE_OBJ_DIRS)))
+-include $(RELEASE_DEPS)
+
+$(EXE):$(RELEASE_OBJS)
+	$(CC) $(RELEASE_CFLAGS) -o $@ $^ $(RELEASE_LDFLAGS) --shared
+./$(RELEASE_OUTPUT)/%.o:%.cc
+	$(CC) -o $@ $(RELEASE_CFLAGS) -c $< $(CPPFLAGS)
+./$(RELEASE_OUTPUT)/%.d:%.cc
+	@set -e; rm -f $@; \
+	$(CC) -MM $(CPPFLAGS) $< > $@.$$$$; \
+	sed 's,.*\.o[ :]*,$(patsubst %.d,%.o,$@) $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
+./$(RELEASE_OUTPUT)/%.o:%.cpp
+	$(CC) -o $@ $(RELEASE_CFLAGS) -c $< $(CPPFLAGS)
+./$(RELEASE_OUTPUT)/%.d:%.cpp
+	@set -e; rm -f $@; \
+	$(CC) -MM $(CPPFLAGS) $< > $@.$$$$; \
+	sed 's,.*\.o[ :]*,$(patsubst %.d,%.o,$@) $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
+./$(RELEASE_OUTPUT)/%.o:%.c
+	$(CC) -o $@ $(RELEASE_CFLAGS) -c $< $(CPPFLAGS)
+./$(RELEASE_OUTPUT)/%.d:%.c
+	@set -e; rm -f $@; \
+	$(CC) -MM $(CPPFLAGS) $< > $@.$$$$; \
+	sed 's,.*\.o[ :]*,$(patsubst %.d,%.o,$@) $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
+
+
+
+debug:$(EXE_D)
+$(shell mkdir -p $(sort $(DEBUG_OBJ_DIRS)))
+-include $(DEBUG_DEPS)
+
+$(EXE_D):$(DEBUG_OBJS)
+	$(CC) $(DEBUG_CFLAGS) -o $@ $^ $(DEBUG_LDFLAGS) --shared
+./$(DEBUG_OUTPUT)/%.o:%.cc
+	$(CC) -o $@ $(DEBUG_CFLAGS) -c $< $(CPPFLAGS)
+./$(DEBUG_OUTPUT)/%.d:%.cc
+	@set -e; rm -f $@; \
+	$(CC) -MM $(CPPFLAGS) $< > $@.$$$$; \
+	sed 's,.*\.o[ :]*,$(patsubst %.d,%.o,$@) $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
+./$(DEBUG_OUTPUT)/%.o:%.cpp
+	$(CC) -o $@ $(DEBUG_CFLAGS) -c $< $(CPPFLAGS)
+./$(DEBUG_OUTPUT)/%.d:%.cpp
+	@set -e; rm -f $@; \
+	$(CC) -MM $(CPPFLAGS) $< > $@.$$$$; \
+	sed 's,.*\.o[ :]*,$(patsubst %.d,%.o,$@) $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
+./$(DEBUG_OUTPUT)/%.o:%.c
+	$(CC) -o $@ $(DEBUG_CFLAGS) -c $< $(CPPFLAGS)
+./$(DEBUG_OUTPUT)/%.d:%.c
+	@set -e; rm -f $@; \
+	$(CC) -MM $(CPPFLAGS) $< > $@.$$$$; \
+	sed 's,.*\.o[ :]*,$(patsubst %.d,%.o,$@) $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
+
+clean:
+	rm -rf build
+	rm -rf $(EXE) $(EXE_D)
+codelen:
+	find $(CODE_LEN_PATH) \( -name "*.cc" -o  -name "*.cpp" -o -name "*.h" -o -name "*.c" \) -exec cat {} \;|sed -e 's/\"/\n\"\n/g;s/\([^\/]\)\(\/\*\)/\1\n\2\n/g;'|sed  -e '/^\"/{:a;N;/\".*\"/!ba;s/\".*\".*//;N;/\"/!d;b}' -e '/^\/\*/{s/\/\*.*\*\///;/\/\*/{:b;N;/\/\*.*\*\//!bb;s/\/\*.*\*\///}}' -e 's/\/\/.*//g' |sed -e '/^[[:space:]]*$$/d'|wc -l
+srczip:
+	zip -r ./$(EXE)_src_$(VER).zip * -x *.o *.d *.svn *.zip *.a *.so $(EXE) *.svn-work *.svn-base *.so.* *.d.* *.svn

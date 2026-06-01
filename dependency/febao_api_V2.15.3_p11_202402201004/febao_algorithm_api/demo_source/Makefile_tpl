@@ -1,0 +1,32 @@
+CPP=source /opt/rh/devtoolset-11/enable && g++
+LINK=source /opt/rh/devtoolset-11/enable && g++
+
+INCS=$(foreach dir,$(DIR_LIST),-I$(dir))
+SRCS=$(shell find $(DIR_LIST) -name "*.cc")
+OBJS=${SRCS:.cc=.o}
+OBJS_D=${SRCS:.cc=_d.o}
+
+CPPFLAGS=-DLINUX -DTIXML_USE_STL -DGCC -std=c++17 -msse4 -fPIC -Wall -Wno-unused-function -Wno-strict-aliasing
+LDFLAGS=-lrt -ldl --shared
+
+
+all:release
+
+release:${EXE}
+${EXE}:${OBJS}
+	${LINK} -o $@ ${OBJS} ${LDFLAGS} ${LIBS}
+
+
+debug:${EXE_D}
+${EXE_D}:${OBJS_D}
+	${LINK} -o $@ ${OBJS_D} ${LDFLAGS} ${LIBS}
+
+
+%.o:%.cc
+	${CPP} -o $@ -O2 $(CPPFLAGS) $(INCS) -c $<
+
+%_d.o:%.cc
+	${CPP} -o $@ -g $(CPPFLAGS) $(INCS) -c $<
+
+clean:
+	-rm -f ${OBJS} ${OBJS_D} ${EXE} ${EXE_D}

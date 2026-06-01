@@ -1,0 +1,4 @@
+source /opt/rh/devtoolset-11/enable && g++ -o src/wing_fit_impl.o -O2 -DLINUX -DTIXML_USE_STL -DGCC -std=c++17 -msse4 -fPIC -Wall -Wno-unused-function -Wno-strict-aliasing -I../include -I../../../fb_i_algorithm/include -I./src -c src/wing_fit_impl.cc
+source /opt/rh/devtoolset-11/enable && g++ -o src/wing_model_impl.o -O2 -DLINUX -DTIXML_USE_STL -DGCC -std=c++17 -msse4 -fPIC -Wall -Wno-unused-function -Wno-strict-aliasing -I../include -I../../../fb_i_algorithm/include -I./src -c src/wing_model_impl.cc
+source /opt/rh/devtoolset-11/enable && g++ -o src/fb_wing_static_api.o -O2 -DLINUX -DTIXML_USE_STL -DGCC -std=c++17 -msse4 -fPIC -Wall -Wno-unused-function -Wno-strict-aliasing -I../include -I../../../fb_i_algorithm/include -I./src -c src/fb_wing_static_api.cc
+source /opt/rh/devtoolset-11/enable && g++ -o wing_static.so ./src/wing_fit_impl.o ./src/wing_model_impl.o ./src/fb_wing_static_api.o -lrt -ldl --shared 

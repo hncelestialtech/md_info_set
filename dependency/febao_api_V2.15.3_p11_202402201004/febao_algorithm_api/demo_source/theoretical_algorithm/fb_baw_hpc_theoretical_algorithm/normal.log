@@ -1,0 +1,3 @@
+source /opt/rh/devtoolset-11/enable && g++ -o src/fb_baw_hpc_theoretical_algorithm.o -O2 -DLINUX -DTIXML_USE_STL -DGCC -std=c++17 -msse4 -fPIC -Wall -Wno-unused-function -Wno-strict-aliasing -I../../../fb_i_algorithm/include -I./src -I../../common -c src/fb_baw_hpc_theoretical_algorithm.cc
+source /opt/rh/devtoolset-11/enable && g++ -o ../../common/fb_plugin_math_helper.o -O2 -DLINUX -DTIXML_USE_STL -DGCC -std=c++17 -msse4 -fPIC -Wall -Wno-unused-function -Wno-strict-aliasing -I../../../fb_i_algorithm/include -I./src -I../../common -c ../../common/fb_plugin_math_helper.cc
+source /opt/rh/devtoolset-11/enable && g++ -o fb_baw_hpc_theoretical_algorithm.so ./src/fb_baw_hpc_theoretical_algorithm.o ../../common/fb_plugin_math_helper.o -lrt -ldl --shared 

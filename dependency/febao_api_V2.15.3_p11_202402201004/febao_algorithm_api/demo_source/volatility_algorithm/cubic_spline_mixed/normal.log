@@ -1,0 +1,3 @@
+source /opt/rh/devtoolset-11/enable && g++ -o src/fb_cubic_spline_mixed_api.o -O2 -DLINUX -DTIXML_USE_STL -DGCC -std=c++17 -msse4 -fPIC -Wall -Wno-unused-function -Wno-strict-aliasing -I../include -I../../../fb_i_algorithm/include -I./src -c src/fb_cubic_spline_mixed_api.cc
+source /opt/rh/devtoolset-11/enable && g++ -o src/cubicspline_mixed_impl.o -O2 -DLINUX -DTIXML_USE_STL -DGCC -std=c++17 -msse4 -fPIC -Wall -Wno-unused-function -Wno-strict-aliasing -I../include -I../../../fb_i_algorithm/include -I./src -c src/cubicspline_mixed_impl.cc
+source /opt/rh/devtoolset-11/enable && g++ -o cubic_spline_mixed.so ./src/fb_cubic_spline_mixed_api.o ./src/cubicspline_mixed_impl.o -lrt -ldl --shared 

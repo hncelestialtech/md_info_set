@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="utf-8"?>
+<datatypes>
+    <int16 typename="count_type" />
+    <int16 typename="int_id_type" />
+    <int16 typename="user_id_type" />
+    <int16 typename="trading_account_id_type" />
+    <int16 typename="algorithm_id_type" />
+    <int16 typename="portfolio_id_type" />
+    <int16 typename="risk_category_id_type" />
+    <int16 typename="risk_rule_id_type" />
+    <int16 typename="spread_template_id_type" />
+    <int16 typename="trading_time_template_id_type" />
+    <int16 typename="holiday_id_type" />
+    <int16 typename="rate_id_type" />
+    <int16 typename="depth_level_type" />
+    <int16 typename="trading_phase_id_type" />
+    <int16 typename="priority_type" />
+    <int16 typename="unit_type" />
+    <int16 typename="node_id_type" />
+    <int16 typename="list_count_type" />
+    <int16 typename="custom_greek_id_type" />
+    <uint16 typename="topic_id_type" />
+
+    <int32 typename="number_type" />
+    <int32 typename="second_type" />
+    <int32 typename="mil_second_type" />
+    <int32 typename="volume_type" />
+    <int32 typename="trade_id_type" />
+    <int32 typename="session_id_type" />
+    <int32 typename="error_id_type" />
+    <int32 typename="strategy_instance_id_type" />
+    <int32 typename="local_id_type" />
+    <int32 typename="trading_right_type" />
+    <int32 typename="trading_day_type" />
+    <int64 typename="order_id_type" />
+    <int64 typename="quote_id_type" />
+    <int64 typename="comb_id_type" />
+    <int64 typename="exec_id_type" />
+    <int64 typename="autoclose_id_type" />
+    <int64 typename="big_number_type" />
+    <int64 typename="component_share_type" />
+    <uint64 typename="timestamp_type" />
+    <uint64 typename="macro_sec_type" />
+    <uint64 typename="seqno_type" />
+
+    <uint64_ph typename="instrument_index_type" start_bit="0" len="16" />
+    <uint64_ph typename="option_serial_index_type" start_bit="16" len="16" />
+    <uint64_ph typename="product_index_type" start_bit="32" len="8" />
+
+    <double typename="double_type" length="12" precision="4" />
+    <double typename="spread_type" length="8" precision="3" />
+    <double typename="shift_type" length="8" precision="3" />
+    <double typename="multiple_type" length="14" precision="6" />
+    <double typename="offset_type" length="14" precision="6" />
+    <double typename="tick_type" length="9" precision="4" />
+    <double typename="volatility_type" length="14" precision="6" />
+    <double typename="volatility_partial_type" length="12" precision="5" />
+    <double typename="turn_over_type" length="13" precision="4" />
+    <double typename="open_interest_type" length="12" precision="3" />
+    <double typename="price_type" length="13" precision="4" />
+	<double typename="degree_type" length="13" precision="4" />
+    <double typename="rate_type" length="12" precision="5" />
+	<double typename="fee_rate_type" length="12" precision="6" />
+    <double typename="money_type" length="17" precision="4" />
+    <double typename="creation_redemption_unit_type" length="15" precision="2" />
+    <double typename="estimate_cash_component_type" length="11" precision="2" />
+    <double typename="holiday_weight_type" length="12" precision="4" />
+    <double typename="greek_data_type" length="18" precision="8" />
+    <double typename="left_time_type" length="12" precision="7" />
+
+    <string typename="serial_ins_id_type" length="32" />
+    <string typename="broker_id_type" length="8" />
+    <string typename="date_type" length="8" />
+    <string typename="exchange_name_type" length="8" />
+    <string typename="custom_flag_type" length="8" />
+    <string typename="greek_name_type" length="16" />
+    <string typename="quote_sys_id_type" length="24" />
+    <string typename="order_sys_id_type" length="24" />
+    <string typename="trade_sys_id_type" length="24" />
+    <string typename="comb_sys_id_type" length="24" />
+    <string typename="exec_sys_id_type" length="24" />
+    <string typename="autoclose_sys_id_type" length="24" />
+    <string typename="date_time_type" length="24" />
+    <string typename="investor_account_id_type" length="24" />
+    <string typename="user_name_type" length="32" />
+    <string typename="password_type" length="32" />
+    <string typename="product_id_type" length="32" />
+    <string typename="option_serial_id_type" length="32" />
+    <string typename="instrument_id_type" length="32" />
+    <string typename="level_id_type" length="32" />
+    <string typename="version_type" length="32" />
+    <string typename="fit_range_param_type" length="32" />
+    <string typename="mid_risk_name_type" length="32" />
+    <string typename="module_name_type" length="32" />
+    <string typename="portfolio_name_type" length="64" />
+    <string typename="risk_rule_name_type" length="64" />
+    <string typename="algorithm_name_type" length="64" />
+    <string typename="custom_id_type" length="64" />
+    <string typename="template_name_type" length="64" />
+    <string typename="direction_list_type" length="64" />
+    <string typename="param_key_type" length="64" />
+    <string typename="param_name_type" length="64" />
+    <string typename="outside_flag_id_type" length="64" />
+    <string typename="param_type_type" length="64" />
+    <string typename="instrument_group_id_type" length="64" />
+    <string typename="option_serial_name_type" length="128" />
+    <string typename="product_name_type" length="128" />
+    <string typename="instrument_name_type" length="128" />
+    <string typename="holiday_name_type" length="128" />
+    <string typename="rate_name_type" length="128" />
+    <string typename="str_desc_type" length="256" />
+    <string typename="order_source_list_type" length="256" />
+    <string typename="quote_source_list_type" length="256" />
+    <string typename="template_value_type" length="512" />
+    <string typename="algorithm_desc_type" length="512" />
+    <string typename="instance_log_type" length="512" />
+    <string typename="algorithm_param_type" length="512" />
+    <string typename="rate_param_type" length="512" />
+    <string typename="price_list_type" length="512" />
+    <string typename="portfolio_id_list_type" length="512" />
+    <string typename="instrument_id_list_type" length="512" />
+    <string typename="custom_define_type" length="512" />
+    <string typename="trade_id_list_type" length="1024" />
+    <string typename="volatility_algorithm_fix_param_type" length="512" />
+    <string typename="product_list_type" length="4096" />
+    <string typename="volatility_algorithm_var_param_type" length="4096" />
+    <string typename="fitting_time_phase_type" length="512" />
+    <string typename="product_id_list_type" length="1024" />
+    <string typename="underlying_group_type" length="1024" />
+    <string typename="option_underlying_group_type" length="4096" />
+    <string typename="security_underlying_group_type" length="4096" />
+    <string typename="order_id_list_type" length="1024" />
+    <string typename="quote_id_list_type" length="1024" />
+    <string typename="strategy_instance_id_list_type" length="1024" />
+    <string typename="algorithm_name_list_type" length="1024" />
+    <string typename="strike_vol_type" length="2048" />
+    <string typename="volatility_custom_param_type" length="512" />
+    <string typename="trading_proxy_name_type" length="64" />
+    <string typename="enum_define_type" length="256" />
+    <string typename="mac_address_type" length="512" />
+    <string typename="errorid_msg_type" length="256" />
+    <string typename="seat_no_type" length="10" />
+    <string typename="user_login_status_type" length="32" />
+    <string typename="user_login_result_type" length="64" />
+    <string typename="custom_greek_datas_type" length="2048" />
+    <string typename="custom_greek_long_datas_type" length="4096" />
+    <string typename="serial_custom_param_group_type" length="1024" />
+    <string typename="volatility_rate_type"   length="512" />
+    <string typename="foward_price_rate_type" length="512" />
+
+    <vstring typename="param_value_type" length="1024" />
+
+    <enums typename="int_status_type">
+        <enum name="INACTIVE" value="0" description = "非活跃" />
+        <enum name="ACTIVE" value="1" description = "活跃" />
+    </enums>
+    <enums typename="exchange_id_type">
+        <enum name="EXCHANGE_UNKNOWN" value="n" description = "未知" />
+        <enum name="EXCHANGE_CFFEX" value="0" description = "中金所" />
+        <enum name="EXCHANGE_SHFE" value="1" description = "上期所" />
+        <enum name="EXCHANGE_DCE" value="2" description = "大商所" />
+        <enum name="EXCHANGE_ZCE" value="3" description = "郑商所" />
+        <enum name="EXCHANGE_SSE" value="4" description = "上交所" />
+        <enum name="EXCHANGE_SZSE" value="5" description = "深交所" />
+        <enum name="EXCHANGE_INE" value="6" description = "能源交易中心" />
+        <enum name="EXCHANGE_GFEX" value="7" description = "广期所" />
+        <enum name="EXCHANGE_BSE" value="8" description = "北交所" />
+        <enum name="EXCHANGE_ALL" value="z" description = "全部" />
+    </enums>
+    <enums typename="option_type_type">
+        <enum name="OPTION_CALL" value="c" description = "认购期权" />
+        <enum name="OPTION_PUT" value="p" description = "认沽期权" />
+    </enums>
+    <enums typename="instrument_type_type">
+        <enum name="INSTRUMENT_UNKNOWN" value='u' description= "未知" />
+        <enum name="INSTRUMENT_FUTURE" value="0" description = "期货" />
+        <enum name="INSTRUMENT_OPTION" value="1" description = "期权" />
+        <enum name="INSTRUMENT_SECURITY"  value="2" description = "证券" />
+        <enum name="INSTRUMENT_ARBITRAGE"  value="3" description = "套利" />
+        <enum name="INSTRUMENT_TYPE_ALL" value="9" description = "全部" />
+    </enums>
+    <enums typename="quote_source_type">
+        <enum name="QUOTE_SOURCE_UNKNOWN" value="u" description = "未知" />
+        <enum name="QUOTE_SOURCE_ALL" value="A" description = "全部" />
+        <enum name="QUOTE_SOURCE_MANUAL_QUOTE" value="1" description = "手动报价" />
+        <enum name="QUOTE_SOURCE_STRATEGY_QUOTE" value="2" description = "策略报价" />
+        <enum name="QUOTE_SOURCE_OUTSIDE_QUOTE" value="3" description = "外部报价" />
+    </enums>
+    <enums typename="order_source_type">
+        <enum name="ORDER_UNKNOWN" value="u" description = "未知" />
+        <enum name="ORDER_SOURCE_ALL" value="A" description = "全部" />
+        <enum name="ORDER_SOURCE_MANUAL_ORDER" value="1" description = "手动报单" />
+        <enum name="ORDER_SOURCE_MANUAL_QUOTE_ORDER" value="2" description = "手动报价衍生单" />
+        <enum name="ORDER_SOURCE_STRATEGY_ORDER" value="3" description = "策略报单" />
+        <enum name="ORDER_SOURCE_STRATEGY_QUOTE_ORDER" value="4" description = "策略报价衍生单" />
+        <enum name="ORDER_SOURCE_OUTSIDE_ORDER" value="5" description = "外部报单" />
+        <enum name="ORDER_SOURCE_OUTSIDE_QUOTE_ORDER" value="6" description = "外部报价衍生单" />
+    </enums>
+    <enums typename="offset_flag_type">
+        <enum name="OFFSET_FLAG_AUTO" value="5" description = "自动" />
+        <enum name="OFFSET_FLAG_OPEN" value="1" description = "开" />
+        <enum name="OFFSET_FLAG_CLOSE" value="2" description = "平" />
+        <enum name="OFFSET_FLAG_CLOSE_TODAY" value="3" description = "平今" />
+        <enum name="OFFSET_FLAG_CLOSE_YESTERDAY" value="4" description = "平昨" />
+    </enums>
+    <enums typename="hedge_flag_type">
+        <enum name="HEDGE_FLAG_SPECULATION" value="1" description = "投机" />
+        <enum name="HEDGE_FLAG_ARBITRAGE" value="2" description = "套利" />
+        <enum name="HEDGE_FLAG_HEDGE" value="3" description = "套保" />
+        <enum name="HEDGE_FLAG_MARKET_MAKER" value="4" description = "做市商" />
+    </enums>
+    <enums typename="quote_status_type">
+        <enum name="QUOTE_STATUS_NONE" value="0" description = "未知状态" />
+        <enum name="QUOTE_STATUS_WAITING" value="1" description = "已报价，待确认" />
+        <enum name="QUOTE_STATUS_IN_BOOK" value="2" description = "交易所确认" />
+        <enum name="QUOTE_STATUS_PART_CANCEL" value="3" description = "部分报价单取消" />
+        <enum name="QUOTE_STATUS_ALL_CANCEL" value="4" description = "全部报价单取消" />
+        <enum name="QUOTE_STATUS_ERROR" value="5" description = "报价单错误" />
+        <enum name="QUOTE_STATUS_PART_TRADED" value="6" description = "部分成交" />
+        <enum name="QUOTE_STATUS_ALL_TRADED" value="7" description = "全部成交" />
+        <enum name="QUOTE_STATUS_TIMEOUT" value="8" description = "超时状态" />
+    </enums>
+    <enums typename="order_status_type">
+        <enum name="ORDER_STATUS_NONE" value="0" description = "未知状态" />
+        <enum name="ORDER_STATUS_WAITING" value="1" description = "已报单，待确认" />
+        <enum name="ORDER_STATUS_IN_BOOK" value="2" description = "交易所确认" />
+        <enum name="ORDER_STATUS_CANCEL" value="3" description = "订单取消" />
+        <enum name="ORDER_STATUS_ERROR" value="4" description = "订单错误" />
+        <enum name="ORDER_STATUS_PART_TRADED" value="5" description = "部分成交" />
+        <enum name="ORDER_STATUS_ALL_TRADED" value="6" description = "全部成交" />
+        <enum name="ORDER_STATUS_TIMEOUT" value="7" description = "超时状态" />
+    </enums>
+    <enums typename="direction_type">
+        <enum name="DIRECTION_BUY" value="0" description = "买" />
+        <enum name="DIRECTION_SELL" value="1" description = "卖" />
+    </enums>
+    <enums typename="price_category_type">
+        <enum name="PRICE_CATEGORY_LIMIT" value="2" description = "限价" />
+        <enum name="PRICE_CATEGORY_ANY" value="1" description = "任意价" />
+        <enum name="PRICE_CATEGORY_BEST" value="3" description = "对手方最优价" />
+        <enum name="PRICE_CATEGORY_FIVE_LEVEL" value="4" description = "最优五档" />
+        <enum name="PRICE_CATEGORY_ARBITRAGE" value="5" description = "套利" />
+        <enum name="PRICE_CATEGORY_SWAP" value="6" description = "互换" />
+        <enum name="PRICE_CATEGORY_BOTH" value="7" description = "报价衍生" />
+        <enum name="PRICE_CATEGORY_OWN_BEST" value="9" description = "本方最优价" />
+    </enums>
+    <enums typename="time_condition_type">
+        <enum name="TIME_CONDITION_GFD" value="2" description = "当日有效" />
+        <enum name="TIME_CONDITION_IOC" value="1" description = "立即完成否则撤销" />
+        <enum name="TIME_CONDITION_GIS" value="3" description = "小节有效" />
+    </enums>
+    <enums typename="volume_condition_type">
+        <enum name="VOLUME_ANY" value="1" description = "任何数量" />
+        <enum name="VOLUME_COMPLETE" value="2" description = "全部数量" />
+    </enums>
+    <enums typename="hedge_price_type">
+        <enum name="BEST_PRICE" value="1" description = "最优价" />
+        <enum name="OPPONENT_PRICE" value="2" description = "对手最优价" />
+        <enum name="LAST_PRICE" value="3" description = "最新价" />
+        <enum name="LIMIT_PRICE" value="4" description = "限价" />
+    </enums>
+    <enums typename="rounding_mode_type">
+        <enum name="ROUNDING_MODEL_ROUND" value="3" description = "四舍五入" />
+        <enum name="ROUNDING_MODEL_CEIL" value="1" description = "舍入， 向上取整" />
+        <enum name="ROUNDING_MODEL_FLOOR" value="2" description = "舍出， 向下取整" />
+    </enums>
+    <enums typename="spread_template_type_type">
+        <enum name="QUOTE_SPREAD_TEMPLATE" value="1" description = "报价价差模板" />
+        <enum name="INQUIRY_SPREAD_TEMPLATE" value="2" description = "回应询价价差模板" />
+    </enums>
+    <enums typename="spread_template_algorithm_type">
+        <enum name="TEMPLATE_ALGO_CONSTANT" value="1" description = "常量价差模板" />
+        <enum name="TEMPLATE_ALGO_MAX" value="2" description = "最大值价差模板" />
+    </enums>
+    <enums typename="user_type_type">
+        <enum name="ADMIN_TYPE" value="1" description = "管理员类型" />
+        <enum name="TRADER_TYPE" value="2" description = "交易员类型" />
+        <enum name="RISK_TYPE" value="3" description = "风控员类型" />
+        <enum name="QUERIER_TYPE" value="4" description = "查询员类型" />
+        <enum name="ACCOUNT_MANAGER_TYPE" value="5" description = "账户管理员类型" />
+        <enum name="OPERATOR_MAINTAINER_TYPE" value="6" description = "运维员类型" />
+    </enums>
+    <enums typename="user_session_status_type">
+        <enum name="LOGIN_STATUS" value="1" description = "已登录" />
+        <enum name="UNLOGIN_STATUS" value="2" description = "未登录" />
+        <enum name="MULTI_LOGIN_STATUS" value="3" description = "重复登录 当前会话失效" />
+        <enum name="PASS_OVERDUE_STATUS" value="4" description = "密码重置 当前会话失效" />
+        <enum name="TIMEOUT_STATUS" value="5" description = "心跳超时 当前会话失效" />
+        <enum name="INACTIVE_ACCOUNT_STATUS" value="6" description = "帐号未激活 当前会话失效" />
+        <enum name="ACCOUNT_ROLE_CHANGED" value="7" description = "帐号权限变更 当前会话失效" />
+    </enums>
+    <enums typename="login_flag_type">
+        <enum name="NORMAL_LOGIN" value="0" description="正常登录" />
+        <enum name="FORCE_LOGIN" value="1" description="强制登录" />
+    </enums>
+    <enums typename="strategy_state_type">
+        <enum name="STRATEGY_INIT_STAT" value="1" description = "初始状态" />
+        <enum name="STRATEGY_RUNNING_STAT" value="2" description = "运行中" />
+        <enum name="STRATEGY_PAUSE_STAT" value="3" description = "已暂停" />
+        <enum name="STRATEGY_DELETE_STAT" value="4" description = "已删除" />
+        <enum name="STRATEGY_TIMEOUT_STAT" value="5" description = "已失效" />
+    </enums>
+    <enums typename="strategy_log_level_type">
+        <enum name="STRATEGY_DEBUG" value="0" description = "调试日志" />
+        <enum name="STRATEGY_INFO" value="1" description = "正常日志" />
+        <enum name="STRATEGY_WARNING" value="2" description = "警告日志" />
+        <enum name="STRATEGY_ERROR" value="3" description = "错误日志" />
+    </enums>
+    <enums typename="instrument_trading_status_type">
+        <enum name="UNKNOWN" value="0" description = "未知状态" />
+        <enum name="BEFORE_TRADING" value="1" description = "开盘前" />
+        <enum name="NOTRADING" value="2" description = "非交易" />
+        <enum name="CONTINOUS" value="3" description = "连续交易" />
+        <enum name="AUCTION_ORDERING" value="4" description = "集合竞价报单" />
+        <enum name="AUCTION_MATCH" value="5" description = "集合竞价撮合" />
+        <enum name="CLOSED" value="6" description = "收盘" />
+        <enum name="SUSPENDED" value="7" description= "停牌" />
+        <enum name="CIRCUIT_BREAKER" value="8" description= "熔断" />
+        <enum name="VOLATILITY_DISRUPTION" value="9" description= "波动性中断" />
+        <enum name="INQUIRY" value="A" description = "询价中" />
+        <enum name="CLOSED_AUCTION_ORDERING" value="B" description= "收盘集合竞价" />
+        <enum name="AFTER_TRADING" value="C" description= "盘后交易" />
+    </enums>
+    <enums typename="is_trading_day_type">
+        <enum name="TRADING_DAY" value="1" description = "交易日" />
+        <enum name="NON_TRADING_DAY" value="0" description = "非交易日" />
+    </enums>
+    <enums typename="position_type_type">
+        <enum name="LONG_POSITION" value="0" description = "多头持仓" />
+        <enum name="SHORT_POSITION" value="1" description = "空头持仓" />
+    </enums>
+    <enums typename="risk_category_type">
+        <enum name="RISK_POSITION_LIMIT" value="0" description = "持仓限额" />
+        <enum name="RISK_MAX_ORDER_LIMIT" value="1" description = "最大报单限额" />
+        <enum name="RISK_FLOW_CONTROL" value="2" description = "流控" />
+        <enum name="RISK_SELF_TRADE_INSIDE" value="3" description = "系统内防对敲" />
+        <enum name="RISK_SELF_TRADE_OUTSIDE" value="4" description = "系统间防对敲" />
+        <enum name="RISK_TRADING_RIGHT" value="5" description = "交易权限" />
+        <enum name="RISK_GREEKS" value="6" description = "希腊字母" />
+        <enum name="RISK_DEVIATION" value="7" description = "价格偏离度" />
+        <enum name="RISK_PRICE_LIMIT" value="8" description = "涨跌停限制" />
+        <enum name="RISK_MAX_CANCEL_ORDER_LIMIT" value="9" description = "最大撤单限额" />
+    </enums>
+    <enums typename="portfolio_type_type">
+        <enum name="NO_VIRTUAL" value="0" description = "非虚拟组合" />
+        <enum name="VIRTUAL" value="1" description = "虚拟组合" />
+    </enums>
+    <enums typename="volatility_source_type_type">
+        <enum name="FIX_VOLATILITY" value="1" description = "固定波动率" />
+        <enum name="PREDICT_VOLATILITY" value="0" description = "预测波动率" />
+    </enums>
+    <enums typename="rate_source_type_type">
+        <enum name="FIX_RATE" value="1" description = "固定利率" />
+        <enum name="PREDICT_RATE" value="0" description = "利率曲线" />
+    </enums>
+    <enums typename="close_type_type">
+        <enum name="PRFER_CLOSE_TODAY" value="1" description = "优先平今" />
+        <enum name="PRFER_CLOSE_YESTODAY" value="2" description = "优先平昨" />
+    </enums>
+    <enums typename="outside_self_trade_type_type">
+        <enum name="OUTSIDE_SELF_TRADE_NO_CHECK" value="0" description = "不检查" />
+        <enum name="OUTSIDE_SELF_TRADE_CHECK_WAITING" value="1" description = "待检查" />
+        <enum name="OUTSIDE_SELF_TRADE_CHECK_PASS" value="2" description = "检查通过" />
+        <enum name="OUTSIDE_SELF_TRADE_CHECK_FAILED" value="3" description = "检查不通过" />
+    </enums>
+    <enums typename="trade_source_type">
+        <enum name="TRADE_SOURCE_UNKNOWN" value="u" description = "未知"/>
+        <enum name="TRADE_SOURCE_INIT" value="1" description = "初始化" />
+        <enum name="TRADE_SOURCE_MANUAL" value="2" description = "手动单" />
+        <enum name="TRADE_SOURCE_STRATEGY" value="3" description = "策略单" />
+        <enum name="TRADE_SOURCE_OUTSIDE" value="4" description = "外部流水" />
+        <enum name="TRADE_SOURCE_OUTSIDE_COMB" value="5" description = "外部流水组合" />
+        <enum name="TRADE_SOURCE_BOOK" value="6" description = "簿记" />
+        <enum name="TRADE_SOURCE_CREATION_REDEMPTION" value="7" description = "簿记申赎" />
+        <enum name="TRADE_SOURCE_OUTSIDE_CREATION_REDEMPTION" value="8" description = "外部流水申赎" />
+        <enum name="TRADE_SOURCE_SETTLEMENT" value="A" description = "结算成交" />
+        <enum name="TRADE_SOURCE_MARGIN_TRADING" value="B" description = "簿记融券可卖" />
+    </enums>
+    <enums typename="inquiry_quote_status_type">
+        <enum name="INQUIRY_QUOTE_WAITING" value="0" description = "等待回应" />
+        <enum name="INQUIRY_QUOTE_FINISH" value="1" description = "已回应" />
+        <enum name="INQUIRY_QUOTE_TIMEOUT" value="2" description = "回应超时" />
+    </enums>
+    <enums typename="comb_action_type">
+        <enum name="COMB_COMBINE" value="0" description = "组合申报" />
+        <enum name="COMB_SPLIT" value="1" description = "组合拆分" />
+    </enums>
+    <enums typename="comb_strategy_type">
+        <enum name="COMB_STRATEGY_UNKNOWN"  value="n" description = "未知" />
+        <enum name="COMB_STRATEGY_CNSJC"    value="0" description = "认购牛市价差" />
+        <enum name="COMB_STRATEGY_CXSJC"    value="1" description = "认购熊市价差" />
+        <enum name="COMB_STRATEGY_PNSJC"    value="2" description = "认沽牛市价差" />
+        <enum name="COMB_STRATEGY_PXSJC"    value="3" description = "认沽熊市价差" />
+        <enum name="COMB_STRATEGY_KS"       value="4" description = "跨式空头" />
+        <enum name="COMB_STRATEGY_KKS"      value="5" description = "宽跨式空头" />
+        <enum name="COMB_STRATEGY_SP"       value="6" description = "期货跨期" />
+        <enum name="COMB_STRATEGY_SPC"      value="7" description = "期货跨品种" />
+        <enum name="COMB_STRATEGY_DS"       value="8" description = "期货对锁" />
+        <enum name="COMB_STRATEGY_DSO"      value="9" description = "期权对锁" />
+        <enum name="COMB_STRATEGY_STD"      value="a" description = "期权跨式" />
+        <enum name="COMB_STRATEGY_STG"      value="b" description = "期权宽跨式" />
+        <enum name="COMB_STRATEGY_BVS"      value="c" description = "买入垂直价差" />
+        <enum name="COMB_STRATEGY_SVS"      value="d" description = "卖出垂直价差" />
+        <enum name="COMB_STRATEGY_PRT_BUY"  value="e" description = "买入期权期货组合" />
+        <enum name="COMB_STRATEGY_PRT_SELL" value="f" description = "卖出期权期货组合" />
+        <enum name="COMB_STRATEGY_CS"       value="g" description = "日历价差" />
+    </enums>
+    <enums typename="comb_source_type">
+        <enum name="COMB_SOURCE_UNKNOWN" value="u" description = "未知" />
+        <enum name="COMB_SOURCE_INIT" value="0" description = "初始组合" />
+        <enum name="COMB_SOURCE_MANUAL_COMB" value="1" description = "手动组合" />
+        <enum name="COMB_SOURCE_STRATEGY_COMB" value="2" description = "策略组合" />
+        <enum name="COMB_SOURCE_OUTSIDE_COMB" value="3" description = "外部组合" />
+        <enum name="COMB_SOURCE_ALL" value="A" description = "全部" />
+    </enums>
+    <enums typename="comb_status_type">
+        <enum name="COMB_STATUS_NONE" value="0" description = "未知状态" />
+        <enum name="COMB_STATUS_WAITING" value="1" description = "已申报，待确认" />
+        <enum name="COMB_STATUS_IN_COMB" value="2" description = "组合成功" />
+        <enum name="COMB_STATUS_PART_SPLIT" value="3" description = "部分拆分" />
+        <enum name="COMB_STATUS_ALL_SPLIT" value="4" description = "全部拆分" />
+        <enum name="COMB_STATUS_ERROR" value="5" description = "组合错误" />
+        <enum name="COMB_STATUS_TIMEOUT" value="6" description = "超时状态" />
+    </enums>
+    <enums typename="expire_date_type_type">
+        <enum name="RECENT_MONTH" value="1" description = "当月合约" />
+        <enum name="FAR_MONTH" value="2" description = "远月合约" />
+    </enums>
+    <enums typename="level_type">
+        <enum name="LEVEL_PORTFOLIO" value="0" description = "组合" />
+        <enum name="LEVEL_INSTRUMENT" value="1" description = "合约" />
+        <enum name="LEVEL_SERIAL" value="2" description = "系列" />
+        <enum name="LEVEL_PRODUCT" value="3" description = "产品" />
+        <enum name="LEVEL_EXCHANGE" value="4" description = "交易所" />
+    </enums>
+    <enums typename="product_type_type">
+        <enum name="PRODUCT_FUTURE" value="1" description = "期货" />
+        <enum name="PRODUCT_OPTION" value="2" description = "期权" />
+        <enum name="PRODUCT_SECURITY" value="3" description = "现货" />
+        <enum name="PRODUCT_ARBITRAGE" value="4" description = "套利组合" />
+    </enums>
+    <enums typename="bool_type">
+        <enum name="MM_FALSE" value="0" description = "false" />
+        <enum name="MM_TRUE" value="1" description = "true" />
+    </enums>
+    <enums typename="portfolio_source_type_type">
+        <enum name="PORTFOLIO_TODAY_TRADE" value="1" description = "今成交默认组合" />
+        <enum name="PORTFOLIO_YESTERDAY_POSITION" value="2" description = "昨持仓默认组合" />
+    </enums>
+    <enums typename="counter_id_type">
+        <enum name="COUNTER_UNKNOWN" value="u" description = "未知" />
+        <enum name="COUNTER_FEMAS" value="0" description = "飞马" />
+        <enum name="COUNTER_CTP" value="1" description = "CTP" />
+        <enum name="COUNTER_XONE" value="2" description = "飞创" />
+        <enum name="COUNTER_TAP" value="3" description = "易盛" />
+        <enum name="COUNTER_O32" value="4" description = "恒生O32" />
+        <enum name="COUNTER_FEMASOP" value="5" description = "飞马期权" />
+        <enum name="COUNTER_YD" value="6" description = "易达" />
+        <enum name="COUNTER_APEX" value="7" description = "顶点" />
+        <enum name="COUNTER_YLINK" value="8" description = "雁联" />
+        <enum name="COUNTER_ROOTNET" value="9" description = "根网" />
+        <enum name="COUNTER_QDP" value="a" description = "QDP" />
+        <enum name="COUNTER_ROHON" value="b" description = "融航" />
+        <enum name="COUNTER_SHENGLI" value="c" description = "盛立" />
+        <enum name="COUNTER_ATP" value="e" description = "华锐" />
+        <enum name="COUNTER_MOCK" value="f" description = "MOCK" />
+        <enum name="COUNTER_EXSIM" value="g" description = "交易所模拟器" />
+        <enum name="COUNTER_ALL" value="z" description = "全部" />
+
+    </enums>
+    <enums typename="exercise_type_type">
+        <enum name="PHYSICAL_DELIVERY" value="1" description = "实物交割" />
+        <enum name="CASH_DELIVERY" value="2" description = "现金交割" />
+    </enums>
+    <enums typename="exercise_style_type">
+        <enum name="EXERCISE_STYLE_AMERICAN" value="0" description = "美式" />
+        <enum name="EXERCISE_STYLE_EUROPEAN" value="1" description = "欧式" />
+    </enums>
+    <enums typename="current_price_type_type">
+        <enum name="CURRENT_PRICE_TYPE_LAST_PRICE" value="1" description = "最新价" />
+        <enum name="CURRENT_PRICE_TYPE_MID_PRICE" value="2" description = "中间价" />
+        <enum name="CURRENT_PRICE_TYPE_CLOSE_PRICE" value="3" description = "收盘价" />
+        <enum name="CURRENT_PRICE_TYPE_UNKNOWN" value="3" description = "未配置" />
+    </enums>
+    <enums typename="average_position_price_type_type">
+        <enum name="AVERAGE_POSITION_PRICE_TYPE_LAST_PRICE" value="1" description = "最新价" />
+        <enum name="AVERAGE_POSITION_PRICE_TYPE_PRE_SETTLEMENT_PRICE" value="2" description = "昨结价" />
+        <enum name="AVERAGE_POSITION_PRICE_TYPE_CLOSE_PRICE" value="3" description = "收盘价" />
+        <enum name="AVERAGE_POSITION_PRICE_TYPE_DERIVED_PRICE" value="4" description = "理论价" />
+    </enums>
+    <enums typename="fit_contract_type_type">
+        <enum name="FIT_CONTRACT_TYPE_ALL" value="0" description = "全部合约" />
+        <enum name="FIT_CONTRACT_TYPE_CALL" value="1" description = "看涨合约" />
+        <enum name="FIT_CONTRACT_TYPE_PUT" value="2" description = "看跌合约" />
+        <enum name="FIT_CONTRACT_TYPE_VIRTUAL" value="3" description = "虚值合约" />
+    </enums>
+
+    <enums typename="fit_price_type_type">
+        <enum name="FIT_PRICE_TYPE_LAST" value="0" description = "最新价" />
+        <enum name="FIT_PRICE_TYPE_BID" value="1" description = "买一价" />
+        <enum name="FIT_PRICE_TYPE_ASK" value="2" description = "卖一价" />
+        <enum name="FIT_PRICE_TYPE_MID" value="3" description = "中间价" />
+    </enums>
+    <enums typename="fit_range_type_type">
+        <enum name="FIT_RANGE_TYPE_STRIKE" value="0" description = "执行价范围拟合" />
+        <enum name="FIT_RANGE_TYPE_DELTA" value="1" description = "delta范围拟合" />
+        <enum name="FIT_RANGE_TYPE_ATM" value="2" description = "百分比范围拟合" />
+        <enum name="FIT_RANGE_TYPE_LOGMONEYNESS" value="3" description = "LogMoneyness范围拟合" />
+        <enum name="FIT_RANGE_TYPE_STRIKE_ABSOLUTE" value="4" description = "执行价绝对值范围拟合" />
+    </enums>
+    <enums typename="atm_forward_type_type">
+        <enum name="FIX_ATM_FORWARD" value="0" description = "固定值" />
+        <enum name="FOLLOW_ATM_FORWARD" value="1" description = "跟踪值" />
+    </enums>
+    <enums typename="atm_forward_price_type_type">
+        <enum name="ATM_FORWARD_LAST_PRICE" value="0" description = "最新价" />
+        <enum name="ATM_FORWARD_BID_PRICE" value="1" description = "买一价" />
+        <enum name="ATM_FORWARD_ASK_PRICE" value="2" description = "卖一价" />
+        <enum name="ATM_FORWARD_MID_PRICE" value="3" description = "中间价" />
+        <enum name="ATM_FORWARD_PRE_SETTLEMENT_PRICE" value="4" description = "昨结价" />
+        <enum name="ATM_FORWARD_OPEN_PRICE" value="5" description = "开盘价" />
+        <enum name="ATM_FORWARD_BASE_PRICE" value="6" description = "基准价" />
+        <enum name="ATM_FORWARD_FORWARD_PRICE" value="7" description = "远期价" />
+        <enum name="ATM_FORWARD_THEORETICAL_PRICE" value="8" description = "理论价" />
+    </enums>
+    <enums typename="greeks_type_type">
+        <enum name="GREEKS_UNKNOW" value="0" description = "未知" />
+        <enum name="DELTA" value="1" description = "delta" />
+        <enum name="GAMMA" value="2" description = "gamma" />
+        <enum name="VEGA" value="3" description = "vega" />
+        <enum name="CASH_DELTA" value="4" description = "cash_delta" />
+        <enum name="CASH_GAMMA" value="5" description = "cash_gama" />
+    </enums>
+    <enums typename="deviation_price_type_type">
+        <enum name="PRICE_UNKNOWN" value="0" description = "未知" />
+        <enum name="PRICE_THREO" value="1" description = "理论价" />
+        <enum name="PRICE_MID" value="2" description = "中间价" />
+        <enum name="PRICE_LAST" value="3" description = "最新价" />
+    </enums>
+    <enums typename="mismatch_type_type">
+        <enum name="MISMATCH_UNKNOW" value="0" description = "未知" />
+        <enum name="MISMATCH_COUNTER" value="1" description = "柜台" />
+        <enum name="MISMATCH_FEBAO" value="2" description = "飞豹" />
+    </enums>
+    <enums typename="check_phase_type_type">
+        <enum name="CHECK_PHASE_UNKNOW" value="0" description = "未知" />
+        <enum name="CHECK_PHASE_BEGIN" value="1" description = "校验开始" />
+        <enum name="CHECK_PHASE_END" value="2" description = "校验结束" />
+    </enums>
+    <enums typename="volatility_param_source_type">
+        <enum name="VOLATILITY_PARAM_SOURCE_MANUAL" value="0" description = "手动" />
+        <enum name="VOLATILITY_PARAM_SOURCE_AUTO" value="1" description = "自动拟合" />
+        <enum name="VOLATILITY_PARAM_SOURCE_STRATEGY" value="2" description = "策略" />
+    </enums>
+    <enums typename="substitute_flag_type">
+        <enum name="CASH_UNKNOWN" value="n" description = "未配置" />
+        <enum name="SH_NO_CASH" value="0" description = "沪市禁止现金替代" />
+        <enum name="SH_CASH_ALLOW" value="1" description = "沪市可以进行现金替代" />
+        <enum name="SH_CASH_ONLY" value="2" description = "沪市必须用现金替代" />
+        <enum name="SZ_CASH_ALLOW" value="3" description = "深市退补现金替代" />
+        <enum name="SZ_CASH_ONLY" value="4" description = "深市必须用现金替代" />
+        <enum name="ELSE_CASH_ALLOW" value="5" description = "非深沪市退补现金替代" />
+        <enum name="ELSE_CASH_ONLY" value="6" description = "非深沪市必须用现金替代" />
+        <enum name="HK_CASH_ALLOW" value="7" description = "港市退补现金替代" />
+        <enum name="HK_CASH_ONLY" value="8" description = "港市必须用现金替代" />
+    </enums>
+    <enums typename="trading_type_type">
+        <enum name="T_UNKNOWN" value="n" description = "未配置" />
+        <enum name="T_0" value="0" description = "T+0" />
+        <enum name="T_1" value="1" description = "T+1" />
+    </enums>
+    <enums typename="security_class_type">
+        <enum name="SECURITY_UNKNOWN" value="n" description = "未配置" />
+        <enum name="SECURITY_FUND" value="0" description = "基金" />
+        <enum name="SECURITY_STOCK" value="1" description = "股票" />
+        <enum name="SECURITY_BOND" value="2" description = "债券" />
+    </enums>
+    <enums typename="security_sub_class_type">
+        <enum name="SECURITY_SUB_UNKNOWN"     value="n"  description = "未配置" />
+        <enum name="FUND_ETF"             value="0"  description = "ETF基金" />
+        <enum name="FUND_RET"             value="1"  description = "REIT基金" />
+        <enum name="STOCK_KSH"            value="2"  description = "科创板股票" />
+        <!-- <enum name="STOCK_NEW_OTC_MAKRET" value="3"  description = "新三板股票" /> -->
+        <enum name="STOCK_BASE"           value="3"  description = "基础层股票" />
+        <enum name="STOCK_INNOVATION"     value="4"  description = "创新层股票" />
+        <enum name="STOCK_SELECT"         value="5"  description = "精选层股票" />
+    </enums>
+    <enums typename="settlement_type_type">
+        <enum name="SETTLEMENT_TYPE_EXERCISE" value="1" description = "行权" />
+        <enum name="SETTLEMENT_TYPE_ABANDON" value="2" description = "放弃行权" />
+        <enum name="SETTLEMENT_TYPE_DELIVERY" value="3" description = "交割" />
+    </enums>
+    <enums typename="mid_risk_status_type">
+        <enum name="MID_RISK_STATUS_NORMAL" value="1" description = "正常状态" />
+        <enum name="MID_RISK_STATUS_WARNING" value="2" description = "报警状态" />
+        <enum name="MID_RISK_STATUS_FORBID" value="3" description = "风控状态" />
+    </enums>
+    <enums typename="cancel_type_type">
+        <enum name="BILATERAL" value="0" description = "双方" />
+        <enum name="BID_UNILATERAL" value="1" description = "单买" />
+        <enum name="ASK_UNILATERAL" value="2" description = "单卖" />
+    </enums>
+    <enums typename="custom_type_type">
+        <enum name="CUSTOM_GREEK_DEFINE" value="1" description = "期权自定义风险值名称定义" />
+    </enums>
+    <enums typename="mid_risk_config_type_type">
+        <enum name="INSTRUMENTS_IN_PRODUCT"  value="1" description = "产品下的每个合约" />
+        <enum name="INSTRUMENTS_IN_OPTION_SERIAL"   value="2" description = "系列下的每个合约" />
+        <enum name="SPEC_INSTRUMENT"         value="3" description = "合约" />
+        <enum name="OPTION_SERIAL_IN_PRODUCT"       value="4" description = "产品下每个系列" />
+        <enum name="SPEC_OPTION_SERIAL"      value="5" description = "系列" />
+        <enum name="SEPC_PRODUCT"            value="6" description = "产品" />
+        <enum name="PRODUCTSUM_IN_TRADING_ACCOUNT"  value="7" description = "交易账户下产品总量" />
+    </enums>
+    <enums typename="authority_category_type">
+        <enum name="READ" value="0" description = "策略参数只读属性" />
+        <enum name="READ_WRITE" value="1" description = "策略参数读写属性" />
+    </enums>
+    <enums typename="last_operate_source_type">
+        <enum name="TERMINAL" value="0" description = "客户端" />
+        <enum name="STRATEGY" value="1" description = "策略" />
+    </enums>
+    <enums typename="cancel_request_operate_type_type">
+        <enum name="CANCEL_ORDER" value="0" description="撤报单" />
+        <enum name="CANCEL_QUOTE" value="1" description="撤报价" />
+    </enums>
+    <enums typename="system_status_type">
+        <enum name="SYSTEM_STATUS_PREPARING" value="1" description = "系统准备中" />
+        <enum name="SYSTEM_STATUS_ERROR"     value="2" description = "系统错误" />
+        <enum name="SYSTEM_STATUS_RUNNING"   value="3" description = "系统运行中" />
+    </enums>
+    <enums typename="node_status_type">
+        <enum name="NODE_PREPARING"  value="3" description = "准备中" />
+        <enum name="NODE_SUCCESS"    value="1" description = "就绪" />
+        <enum name="NODE_FAILED"     value="2" description = "失败" />
+    </enums>
+    <enums typename="trading_account_status_type">
+        <enum name="TRADING_ACCOUNT_STATUS_NORMAL" value="0" description = "正常交易" />
+        <enum name="TRADING_ACCOUNT_STATUS_EMERGENCY" value="1" description = "紧急制动" />
+    </enums>
+    <enums typename="emergency_status_type">
+        <enum name="EMERGENCY_START" value="1" description = "开始执行" />
+        <enum name="EMERGENCY_COMPLETE" value="2" description = "执行完成" />
+    </enums>
+    <enums typename="system_switch_category_name_type">
+        <enum name="SWITCH_UNKNOWN" value="0" description = "未知" />
+        <enum name="EMERGENCY_BRAKING" value="1" description = "系统紧急制动开关" />
+        <enum name="AUTO_VERIFY" value="2" description = "自动组合校验开关" />
+    </enums>
+    <enums typename="strategy_stream_status_type">
+        <enum name="STREAM_ACTIVE" value="1" description = "订阅消息" />
+        <enum name="STREAM_UNACTIVE" value="0" description = "取消订阅" />
+    </enums>
+    <enums typename="exchange_update_source_type">
+        <enum name="UPDATE_BY_INIT"     value="1" description = "初始化" />
+        <enum name="UPDATE_BY_MD"       value="2" description = "行情" />
+        <enum name="UPDATE_BY_TRADE"    value="3" description = "交易" />
+        <enum name="UPDATE_BY_CLIENT"   value="4" description = "客户端" />
+    </enums>
+    <enums typename="exec_action_type">
+        <enum name="OPTION_EXEC"        value="0" description = "期权执行" />
+        <enum name="OPTION_ABANDON"     value="1" description = "放弃执行" />
+    </enums>
+    <enums typename="autoclose_flag_type">
+        <enum name="AUTOCLOSE_FLAG_OFF"    value="0" description = "不对冲" />
+        <enum name="AUTOCLOSE_FLAG_ON"     value="1" description = "对冲" />
+    </enums>
+   <enums typename="exec_status_type">
+        <enum name="EXEC_STATUS_NONE"       value="0" description = "未知状态" />
+        <enum name="EXEC_STATUS_WAITING"    value="1" description = "已申报，待确认" />
+        <enum name="EXEC_STATUS_IN_BOOK"    value="2" description = "交易所已确认" />
+        <enum name="EXEC_STATUS_CANCEL"     value="3" description = "已取消" />
+        <enum name="EXEC_STATUS_ERROR"      value="4" description = "行权申请错误" />
+        <enum name="EXEC_STATUS_TIMEOUT"    value="5" description = "超时状态" />
+    </enums>
+    <enums typename="strategy_pause_reason_type">
+        <enum name="PAUSE_BY_UNKNOWN"              value="0" description = "未知" />
+        <enum name="PAUSE_BY_USER_OPERATOR"        value="1" description = "用户手动暂停" />
+        <enum name="PAUSE_BY_EMERGENCY"            value="2" description = "紧急制动暂停" />
+        <enum name="PAUSE_BY_STRATEGY_OPERATOR"    value="3" description = "策略主动暂停" />
+        <enum name="PAUSE_BY_TIMEOUT"              value="4" description = "中后台连接超时暂停" />
+    </enums>
+    <enums typename="scene_analysis_result_type">
+        <enum name="UNKOWN_TYPE" value="0" description = "未知"  />
+        <enum name="PNL_TYPE"    value="1" description = "pnl"   />
+        <enum name="DELTA_TYPE"  value="2" description = "delta" />
+        <enum name="GAMMA_TYPE"  value="3" description = "gamma" />
+        <enum name="VEGA_TYPE"   value="4" description = "vega"  />
+        <enum name="THETA_TYPE"  value="5" description = "theta" />
+    </enums>
+    <enums typename="sent_flag_type">
+        <enum name="NOT_SENT" value="0" discription = "未发送" />
+        <enum name="SENT" value="1" discription = "已发送" />
+    </enums>
+    <enums typename="self_trade_mode_type">
+        <enum name="STRICT_MODE" value="s" discription = "从严模式" />
+        <enum name="EXCELLENT_MODE" value="e" discription = "从优模式" />
+    </enums>
+    <!-- instrument-  -->
+    <enums typename="life_cycle_type">
+        <enum name="LIFE_CYCLE_UNKNOWN"    value="0" description = "未知" />
+        <enum name="LIFE_CYCLE_NEW"        value="1" description = "新录入" />
+        <enum name="LIFE_CYCLE_EXISTED"    value="2" description = "已存在" />
+        <enum name="LIFE_CYCLE_EXPIRING"   value="3" description = "到期" />
+    </enums>
+    <enums typename="trigger_type_type">
+        <enum name="NO_TIMER_TRIGGER"  value="0" description = "非定时器触发" />
+        <enum name="TIMER_TRIGGER"     value="1" description = "定时器触发" />
+    </enums>
+</datatypes>

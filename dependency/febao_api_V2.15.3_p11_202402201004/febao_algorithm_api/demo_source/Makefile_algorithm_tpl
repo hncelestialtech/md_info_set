@@ -1,0 +1,23 @@
+MAKE := make
+ROOT_PATH := $(shell pwd)
+ALGORITHM_DIR := $(notdir $(ROOT_PATH))
+
+MODULES_SO := $(foreach MODULE,$(MODULES),$(MODULE)/$(MODULE).so)
+
+.PHONY: clean builder
+
+
+release: $(MODULES_SO)
+
+$(MODULES_SO):
+	@echo $(MODULES_SO)
+	$(MAKE) -C $(ROOT_PATH)/$(dir $@)
+
+builder: release
+	@echo $(ALGORITHM_DIR)
+	mkdir -p $(ALGORITHM_DIR)
+	$(foreach module_so,$(MODULES_SO),cp $(module_so) $(ALGORITHM_DIR);)
+
+clean:
+	$(foreach module,$(MODULES),$(MAKE) clean -C $(ROOT_PATH)/$(module);)
+	rm -rf $(ALGORITHM_DIR)

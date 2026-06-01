@@ -1,0 +1,4 @@
+src/cubicspline_mixed_impl.cc: In member function ‘int cffex::fb::plugin::cubicspline_mixed_impl::set_param_value(const char*, const char*)’:
+src/cubicspline_mixed_impl.cc:84:16: warning: ‘char* strncpy(char*, const char*, size_t)’ specified bound 512 equals destination size [-Wstringop-truncation]
+   84 |         strncpy(fixed_param, fixed_model_param, sizeof(char)*MAX_FIXED_MODEL_PARAM_LENGTH);
+      |         ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
